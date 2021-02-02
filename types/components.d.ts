@@ -1,6 +1,7 @@
 interface FrontmatterMeta {
-  title: string;
   date: string;
-  summary: string;
+  readingTime: IReadTimeResults;
   slug: string;
+  summary: string;
+  title: string;
 }

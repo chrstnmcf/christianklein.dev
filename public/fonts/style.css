@@ -1,7 +1,6 @@
 @font-face {
   font-family: 'Domine';
-  src: url('Domine-Bold.woff') format('woff'),
-    url('Domine-Bold.ttf') format('truetype');
+  src: url('Domine-Bold.woff') format('woff'), url('Domine-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -9,8 +8,7 @@
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('Montserrat-Light.woff2') format('woff2'),
-    url('Montserrat-Light.ttf') format('truetype');
+  src: url('Montserrat-Light.woff2') format('woff2'), url('Montserrat-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -18,8 +16,7 @@
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('Montserrat.woff2') format('woff2'),
-    url('Montserrat.ttf') format('truetype');
+  src: url('Montserrat-Regular.woff2') format('woff2'), url('Montserrat-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;

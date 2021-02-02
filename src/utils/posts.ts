@@ -3,6 +3,7 @@ import path from 'path';
 
 import matter from 'gray-matter';
 import renderToString from 'next-mdx-remote/render-to-string';
+import readingTime from 'reading-time';
 
 import MDXComponents from '../components/MDXComponents';
 
@@ -40,11 +41,12 @@ export const getPostBySlug = async (slug: string) => {
   const mdxSource = await renderToString(content, {
     components: MDXComponents,
     scope: data,
-  });
+  }); // MdxRemote.Source
   return {
     source: mdxSource,
     frontMatter: {
       slug: slug || '',
+      readingTime: readingTime(content),
       ...data,
     },
   };
