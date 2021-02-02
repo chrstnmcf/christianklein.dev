@@ -2,8 +2,8 @@ import { ReactNode } from 'react';
 import Head from 'next/head';
 import 'twin.macro';
 
-import Footer from './Footer';
-import Header from './Header';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 
 interface Props {
   children: ReactNode;
@@ -21,7 +21,7 @@ function Home({ children, title = null }: Props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <section tw="mb-auto">{children}</section>
+      <section tw="container mb-auto">{children}</section>
       <Footer />
     </main>
   );

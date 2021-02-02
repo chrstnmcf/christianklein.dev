@@ -1,15 +1,17 @@
 import 'twin.macro';
 import Link from 'next/link';
 import { Github, Linkedin, Twitter } from '@styled-icons/boxicons-logos';
+import { useTheme } from 'next-themes';
 
 import Toggle from './Toggle';
 import Title from './Title';
 
 export default function HeaderComponent() {
+  // const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+
   const toggleDarkmode = (active: boolean) => {
-    const root = window.document.documentElement;
-    root.classList.remove(active ? 'dark' : 'light');
-    root.classList.add(active ? 'light' : 'dark');
+    setTheme(active ? 'light' : 'dark');
   };
 
   return (
@@ -19,22 +21,27 @@ export default function HeaderComponent() {
       </Link>
       <ul tw="list-none grid grid-flow-col items-center gap-2 md:gap-3">
         <li>
-          <a href="https://github.com/chrstnkl" rel="noreferrer" target="_blank">
+          <a tw="hover:text-black" href="https://github.com/chrstnkl" rel="noreferrer" target="_blank">
             <Github size="24" />
           </a>
         </li>
         <li>
-          <a href="https://www.linkedin.com/in/christianklein0/" rel="noreferrer" target="_blank">
+          <a
+            tw="hover:text-purple-600"
+            href="https://www.linkedin.com/in/christianklein0/"
+            rel="noreferrer"
+            target="_blank"
+          >
             <Linkedin size="24" />
           </a>
         </li>
         <li>
-          <a href="https://twitter.com/chrstn_kl" rel="noreferrer" target="_blank">
+          <a tw="hover:text-blue-400" href="https://twitter.com/chrstn_kl" rel="noreferrer" target="_blank">
             <Twitter size="24" />
           </a>
         </li>
         <li tw="flex">
-          <Toggle onClick={toggleDarkmode} />
+          <Toggle active={theme === 'dark'} onClick={toggleDarkmode} />
         </li>
       </ul>
     </header>

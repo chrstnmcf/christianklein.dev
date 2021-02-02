@@ -1,12 +1,14 @@
+import 'twin.macro';
 import hydrate from 'next-mdx-remote/hydrate';
 
-import Layout from '../../components/Layout';
 import { getPostBySlug, getSlugs } from '../../utils/posts';
 import MDXComponents from '../../components/MDXComponents';
+import PostLayout from '../../layouts/PostLayout';
 
 export default function Post({ source, frontMatter }) {
   const content = hydrate(source, { components: MDXComponents });
-  return <Layout title={frontMatter.title}>{content}</Layout>;
+
+  return <PostLayout meta={frontMatter}>{content}</PostLayout>;
 }
 
 export async function getStaticPaths() {

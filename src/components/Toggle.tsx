@@ -4,6 +4,7 @@ import tw, { styled } from 'twin.macro';
 type ToggleSize = 'sm' | 'md' | 'lg';
 
 interface ToggleProps {
+  active?: boolean;
   size?: ToggleSize;
   onClick: (active: boolean) => void;
 }
@@ -35,23 +36,23 @@ const ToggleCircle = styled.span<ToggleStyleProps>(({ active, size }) => [
   size === 'md' && tw`h-4 w-4`,
 ]);
 
-export default function Toggle({ size = 'md', onClick }: ToggleProps) {
-  const [active, setActive] = useState(false);
+export default function Toggle({ active = false, size = 'md', onClick }: ToggleProps) {
+  const [activeState, setActiveState] = useState(active);
 
   const toggled = () => {
-    setActive(!active);
+    setActiveState(!activeState);
 
     if (onClick) {
-      onClick(active);
+      onClick(activeState);
     }
   };
 
   return (
     <>
-      <ToggleButton active={active} role="checkbox" aria-checked={active} onClick={toggled}>
-        <input value={active ? 'active' : 'inactive'} type="hidden" />
+      <ToggleButton active={activeState} role="checkbox" aria-checked={activeState} onClick={toggled}>
+        <input value={activeState ? 'active' : 'inactive'} type="hidden" />
         <ToggleBackground size={size} />
-        <ToggleCircle active={active} size={size} aria-hidden="true" />
+        <ToggleCircle active={activeState} size={size} aria-hidden="true" />
       </ToggleButton>
     </>
   );

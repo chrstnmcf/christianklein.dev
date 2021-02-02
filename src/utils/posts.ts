@@ -16,7 +16,7 @@ export function getSlugs() {
 export const getAllPosts = () => {
   const files = fs.readdirSync(dataDirectory);
 
-  return files.reduce((posts, postSlug) => {
+  const posts = files.reduce((allPosts, postSlug) => {
     const content = fs.readFileSync(path.join(dataDirectory, postSlug), 'utf-8');
     const { data } = matter(content);
 
@@ -25,9 +25,11 @@ export const getAllPosts = () => {
         ...data,
         slug: postSlug.replace('.mdx', ''),
       },
-      ...posts,
+      ...allPosts,
     ];
   }, []);
+
+  return posts.sort((a: any, b: any) => Number(new Date(b.date)) - Number(new Date(a.date)));
 };
 
 export const getPostBySlug = async (slug: string) => {
@@ -42,9 +44,8 @@ export const getPostBySlug = async (slug: string) => {
   return {
     source: mdxSource,
     frontMatter: {
-      source: mdxSource,
       slug: slug || '',
-      frontMatter: data,
+      ...data,
     },
   };
 };

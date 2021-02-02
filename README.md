@@ -1,3 +1,10 @@
-# futr
+# christianklein.dev
 
-Source code for [futr.de](https://futr.de/) based on Next.js.
+Source code for [christianklein.dev](https://christianklein.dev/) based on Next.js.
+
+## Techstack
+
+- Next.js
+- Tailwind CSS
+- twin.macro
+- styled.components

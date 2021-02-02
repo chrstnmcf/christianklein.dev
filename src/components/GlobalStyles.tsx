@@ -28,11 +28,15 @@ const BaseStyle = createGlobalStyle`
   }
 
   h1 {
-    ${tw`text-4xl mb-2 sm:text-5xl lg:text-6xl lg:mb-3`}
+    ${tw`text-gray-700 dark:text-gray-100`}
+    ${tw`text-4xl sm:text-5xl lg:text-6xl`}
+    ${tw`mb-2 lg:mb-3`}
   }
 
   h2 {
-    ${tw`text-3xl mb-2 sm:text-4xl lg:mb-3`}
+    ${tw`text-gray-400 dark:text-gray-300`}
+    ${tw`text-3xl sm:text-4xl`}
+    ${tw`mb-2 lg:mb-3`}
   }
 
   h3 {

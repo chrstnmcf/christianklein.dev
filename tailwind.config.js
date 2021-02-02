@@ -20,7 +20,43 @@ module.exports = {
           xl: theme('spacing.8'),
         },
       }),
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.gray.500'),
+            'h1, h2, h3': {
+              color: theme('colors.gray.600'),
+            },
+            'h4, h5, h6': {
+              color: theme('colors.gray.500'),
+            },
+            a: {
+              color: theme('colors.gray.400'),
+              '&:hover': {
+                color: theme('colors.gray.700'),
+              },
+            },
+          },
+        },
+        dark: {
+          css: {
+            color: theme('colors.gray.200'),
+            'h1, h2, h3': {
+              color: theme('colors.gray.100'),
+            },
+            'h4, h5, h6': {
+              color: theme('colors.gray.200'),
+            },
+            a: {
+              color: theme('colors.white'),
+              '&:hover': {
+                color: theme('colors.gray.400'),
+              },
+            },
+          },
+        },
+      }),
     },
   },
-  plugins: [require('@tailwindcss/line-clamp')],
+  plugins: [require('@tailwindcss/line-clamp'), require('@tailwindcss/typography')],
 };
