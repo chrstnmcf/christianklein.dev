@@ -1,0 +1,4 @@
+tailwind.config.js
+next.config.js
+.eslintrc.js
+**/*.d.ts

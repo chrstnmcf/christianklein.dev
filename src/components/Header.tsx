@@ -19,17 +19,17 @@ export default function HeaderComponent() {
       </Link>
       <ul tw="list-none grid grid-flow-col items-center gap-2 md:gap-3">
         <li>
-          <a href="https://github.com/chrstnkl">
+          <a href="https://github.com/chrstnkl" rel="noreferrer" target="_blank">
             <Github size="24" />
           </a>
         </li>
         <li>
-          <a href="https://www.linkedin.com/in/christianklein0/">
+          <a href="https://www.linkedin.com/in/christianklein0/" rel="noreferrer" target="_blank">
             <Linkedin size="24" />
           </a>
         </li>
         <li>
-          <a href="https://twitter.com/chrstn_kl">
+          <a href="https://twitter.com/chrstn_kl" rel="noreferrer" target="_blank">
             <Twitter size="24" />
           </a>
         </li>

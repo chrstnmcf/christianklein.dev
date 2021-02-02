@@ -3,7 +3,6 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -11,7 +10,9 @@ module.exports = {
     },
     ecmaVersion: 12,
     sourceType: 'module',
+    project: './tsconfig.json',
   },
+  extends: ['plugin:react/recommended', 'airbnb-typescript', 'prettier', 'prettier/@typescript-eslint'],
   plugins: ['react', '@typescript-eslint'],
   rules: {
     'react/react-in-jsx-scope': 'off',
@@ -35,6 +36,11 @@ module.exports = {
       },
     ],
   },
+  // overrides: [
+  //   {
+  //     files: ['*.ts', '*.tsx'],
+  //   },
+  // ],
   settings: {
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],

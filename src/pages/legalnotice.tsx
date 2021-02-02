@@ -4,7 +4,7 @@ import Layout from '../components/Layout';
 
 function Home() {
   return (
-    <Layout>
+    <Layout title="Legal Notice">
       <div tw="container">
         <h2>Legal Notice / Impressum</h2>
         <p>

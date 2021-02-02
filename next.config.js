@@ -1,5 +1,10 @@
 /* eslint-disable no-param-reassign */
-module.exports = {
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+});
+
+module.exports = withMDX({
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   webpack: (config, { isServer }) => {
     // Fixes packages that depend on fs/module module
     if (!isServer) {
@@ -8,4 +13,4 @@ module.exports = {
 
     return config;
   },
-};
+});
