@@ -1,16 +1,16 @@
 import 'twin.macro';
 
-import Layout from '../layouts/Layout';
+import Wrapper from '../components/Wrapper';
 import Main from '../components/Main';
 import Posts from '../components/Posts';
-import { getAllPosts } from '../utils/posts';
+import { getAllPosts } from '../utils/content';
 
-function Home({ posts }) {
+function Home({ posts }: { posts: PostType[] }) {
   return (
-    <Layout>
+    <Wrapper>
       <Main />
       <Posts posts={posts} />
-    </Layout>
+    </Wrapper>
   );
 }
 

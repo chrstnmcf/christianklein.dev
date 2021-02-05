@@ -2,10 +2,13 @@
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
+import Favicons from '../components/Favicons';
+
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
+
     try {
       ctx.renderPage = () =>
         originalRenderPage({
@@ -31,7 +34,18 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <link rel="preload" href="/fonts/Domine-Bold.woff" as="font" type="font/woff" crossOrigin="anonymous" />
+          <link
+            rel="preload"
+            href="/fonts/Montserrat-Regular.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
+
           <link href="/fonts/style.css" rel="stylesheet" />
+          <Favicons />
+          <meta name="robots" content="follow, index" />
         </Head>
         <body>
           <Main />

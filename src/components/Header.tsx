@@ -27,7 +27,7 @@ export default function HeaderComponent() {
         </li>
         <li>
           <a
-            tw="hover:text-purple-600"
+            tw="hover:text-purple-500"
             href="https://www.linkedin.com/in/christianklein0/"
             rel="noreferrer"
             target="_blank"

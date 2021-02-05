@@ -11,7 +11,9 @@ export default function Footer() {
         </div>
         <ul tw="list-none grid grid-flow-col gap-2 md:gap-3">
           <li>
-            <Link href="/legalnotice">Legal Notice</Link>
+            <Link href="/legalnotice">
+              <a>Legal Notice</a>
+            </Link>
           </li>
         </ul>
       </div>

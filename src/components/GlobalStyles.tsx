@@ -7,7 +7,7 @@ const BaseStyle = createGlobalStyle`
   }
 
   html.dark > body {
-    ${tw`text-gray-200 bg-gray-900`}
+    ${tw`text-gray-100 bg-gray-900`}
   }
 
   a {
@@ -34,7 +34,7 @@ const BaseStyle = createGlobalStyle`
   }
 
   h2 {
-    ${tw`text-gray-400 dark:text-gray-300`}
+    ${tw`text-gray-500 dark:text-white`}
     ${tw`text-3xl sm:text-4xl`}
     ${tw`mb-2 lg:mb-3`}
   }
@@ -55,6 +55,10 @@ const BaseStyle = createGlobalStyle`
     ${tw`text-base`}
   }
 
+  u {
+    ${tw`no-underline relative`}
+    ${tw`after:(content block absolute w-full h-1 bottom-0 left-0 bg-blue-400 opacity-50)`}
+  }
 `;
 
 export default function GlobalStylesComponent() {

@@ -15,5 +15,6 @@
   "tailwindCSS.includeLanguages": {
     "typescript": "javascript",
     "typescriptreact": "javascript"
-  }
+  },
+  "tailwindCSS.lint.cssConflict": "ignore"
 }

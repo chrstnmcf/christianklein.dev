@@ -1,17 +1,15 @@
-import Link from 'next/link';
+import PostItem from '../../components/Posts/PostItem';
+import Wrapper from '../../components/Wrapper';
+import { getAllPosts } from '../../utils/content';
 
-import Layout from '../../layouts/Layout';
-import { getAllPosts } from '../../utils/posts';
-
-export default function Posts({ posts }) {
+export default function Posts({ posts }: { posts: PostMeta[] }) {
   return (
-    <Layout>
-      {posts.map((frontMatter: any) => (
-        <h4 key={frontMatter.slug}>
-          <Link href={`posts/${frontMatter.slug}`}>{frontMatter.title}</Link>
-        </h4>
+    <Wrapper>
+      {posts.length > 0 ? <h2>All posts</h2> : <h2>Oh no, it seems like are there are no posts!</h2>}
+      {posts.map((meta: PostMeta) => (
+        <PostItem key={meta.slug} meta={meta} />
       ))}
-    </Layout>
+    </Wrapper>
   );
 }
 

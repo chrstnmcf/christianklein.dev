@@ -3,21 +3,21 @@ import path from 'path';
 
 import matter from 'gray-matter';
 import renderToString from 'next-mdx-remote/render-to-string';
-import readingTime from 'reading-time';
+import { MdxRemote } from 'next-mdx-remote/types';
 
 import MDXComponents from '../components/MDXComponents';
 
 const root = process.cwd();
-const dataDirectory = path.join(root, 'content', 'posts');
+const dataDirectory = path.join(root, '_content', 'posts');
 
 export function getSlugs() {
   return fs.readdirSync(dataDirectory).map((d) => d.replace(/\.mdx$/, ''));
 }
 
-export const getAllPosts = () => {
+export const getAllPosts = (): PostMeta[] => {
   const files = fs.readdirSync(dataDirectory);
 
-  const posts = files.reduce((allPosts, postSlug) => {
+  const posts = files.reduce((allPosts: any, postSlug: string) => {
     const content = fs.readFileSync(path.join(dataDirectory, postSlug), 'utf-8');
     const { data } = matter(content);
 
@@ -33,7 +33,12 @@ export const getAllPosts = () => {
   return posts.sort((a: any, b: any) => Number(new Date(b.date)) - Number(new Date(a.date)));
 };
 
-export const getPostBySlug = async (slug: string) => {
+export interface PostSlugType {
+  source: MdxRemote.Source;
+  frontMatter: PostMetaSlug;
+}
+
+export const getPostBySlug = async (slug: string): Promise<PostSlugType> => {
   const source = fs.readFileSync(path.join(dataDirectory, `${slug}.mdx`), 'utf8');
 
   const { data, content } = matter(source);
@@ -41,12 +46,12 @@ export const getPostBySlug = async (slug: string) => {
   const mdxSource = await renderToString(content, {
     components: MDXComponents,
     scope: data,
-  }); // MdxRemote.Source
+  });
+
   return {
     source: mdxSource,
     frontMatter: {
       slug: slug || '',
-      readingTime: readingTime(content),
       ...data,
     },
   };

@@ -9,9 +9,8 @@ module.exports = {
     },
     ecmaVersion: 12,
     sourceType: 'module',
-    project: './tsconfig.json',
   },
-  extends: ['plugin:react/recommended', 'airbnb-typescript', 'prettier', 'prettier/@typescript-eslint'],
+  extends: ['plugin:react/recommended', 'prettier'],
   plugins: ['react'],
   rules: {
     'react/react-in-jsx-scope': 'off',
@@ -26,6 +25,7 @@ module.exports = {
         'newlines-between': 'always',
       },
     ],
+    'jsx-a11y/anchor-is-valid': 'off',
   },
   overrides: [
     {
@@ -39,8 +39,8 @@ module.exports = {
         sourceType: 'module',
         project: './tsconfig.json',
       },
-      plugins: ['@typescript-eslint'],
-      extends: ['plugin:@typescript-eslint/recommended-requiring-type-checking'],
+      plugins: ['@typescript-eslint', 'airbnb-typescript'],
+      extends: ['prettier/@typescript-eslint', 'plugin:@typescript-eslint/recommended-requiring-type-checking'],
       rules: {
         'no-use-before-define': 'off',
         '@typescript-eslint/no-use-before-define': ['error'],

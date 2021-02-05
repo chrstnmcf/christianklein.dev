@@ -1,16 +1,13 @@
-import Layout from '../layouts/Layout';
+import Layout from '../layouts/MDXLayout';
 
 export const meta = {
   title: 'Legal Notice',
 };
 
-## Legal Notice / Impressum
+# Legal Notice / Impressum
 
 In case you're looking for the guy who is responsible for all of this, here you go.
 
-Christian Klein
-Wallbachstraße 24
-5202 Neumarkt am Wallersee
-Austria
+**Christian Klein**<br /> Wallbachstraße 24<br /> 5202 Neumarkt am Wallersee<br /> Austria
 
-export default ({ children }) => <Layout title={meta.title}>{children}</Layout>;
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

@@ -1,11 +1,17 @@
 import 'twin.macro';
 import hydrate from 'next-mdx-remote/hydrate';
+import { GetStaticPropsResult } from 'next';
 
-import { getPostBySlug, getSlugs } from '../../utils/posts';
+import { getPostBySlug, getSlugs, PostSlugType } from '../../utils/content';
 import MDXComponents from '../../components/MDXComponents';
 import PostLayout from '../../layouts/PostLayout';
 
-export default function Post({ source, frontMatter }) {
+interface PostProps {
+  source: any;
+  frontMatter: PostMeta;
+}
+
+export default function Post({ source, frontMatter }: PostProps) {
   const content = hydrate(source, { components: MDXComponents });
 
   return <PostLayout meta={frontMatter}>{content}</PostLayout>;
@@ -24,7 +30,13 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+interface StaticPropsParam {
+  params: {
+    slug: string;
+  };
+}
+
+export async function getStaticProps({ params }: StaticPropsParam): Promise<GetStaticPropsResult<PostSlugType>> {
   const post = await getPostBySlug(params.slug);
   return { props: post };
 }

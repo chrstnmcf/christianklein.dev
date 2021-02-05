@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-const CustomLink = (props: any) => {
+const CustomLink = (props: React.PropsWithChildren<any>) => {
   const { href } = props;
   const isInternal = href && (href.startsWith('/') || href.startsWith('#'));
 
