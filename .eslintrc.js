@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
     es2021: true,
@@ -10,14 +11,30 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  extends: ['plugin:react/recommended', 'prettier'],
-  plugins: ['react'],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
+    project: './tsconfig.eslint.json',
+  },
+  plugins: ['@typescript-eslint'],
+  extends: [
+    'airbnb-typescript',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
+    'prettier',
+    'prettier/react',
+    'prettier/@typescript-eslint',
+  ],
   rules: {
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
     'react/react-in-jsx-scope': 'off',
-    'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     'react/prop-types': 'off',
     'react/require-default-props': 'off',
-    'import/no-unresolved': 'error',
+    'import/no-extraneous-dependencies': 'off',
     'import/order': [
       'error',
       {
@@ -26,48 +43,6 @@ module.exports = {
       },
     ],
     'jsx-a11y/anchor-is-valid': 'off',
+    'jsx-a11y/anchor-has-content': 'off',
   },
-  overrides: [
-    {
-      files: ['*.ts, *.tsx'],
-      parser: '@typescript-eslint/parser',
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-        ecmaVersion: 12,
-        sourceType: 'module',
-        project: './tsconfig.json',
-      },
-      plugins: ['@typescript-eslint', 'airbnb-typescript'],
-      extends: ['prettier/@typescript-eslint', 'plugin:@typescript-eslint/recommended-requiring-type-checking'],
-      rules: {
-        'no-use-before-define': 'off',
-        '@typescript-eslint/no-use-before-define': ['error'],
-        'no-unused-vars': 'off',
-        '@typescript-eslint/no-unused-vars': ['error'],
-        'import/extensions': [
-          'error',
-          'ignorePackages',
-          {
-            js: 'never',
-            mjs: 'never',
-            jsx: 'never',
-            ts: 'never',
-            tsx: 'never',
-          },
-        ],
-      },
-      settings: {
-        'import/parsers': {
-          '@typescript-eslint/parser': ['.ts', '.tsx'],
-        },
-        'import/resolver': {
-          typescript: {
-            alwaysTryTypes: true,
-          },
-        },
-      },
-    },
-  ],
 };

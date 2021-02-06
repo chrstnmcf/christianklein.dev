@@ -15,7 +15,7 @@ export default function HeaderComponent() {
   };
 
   return (
-    <header tw="container flex justify-between py-8 text-gray-400">
+    <header tw="container flex content-center justify-between pt-8 pb-6 mb-6 text-gray-400">
       <Link href="/" passHref>
         <Title />
       </Link>

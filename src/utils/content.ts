@@ -10,13 +10,14 @@ import MDXComponents from '../components/MDXComponents';
 const root = process.cwd();
 const dataDirectory = path.join(root, '_content', 'posts');
 
-export function getSlugs() {
+export function getSlugs(): string[] {
   return fs.readdirSync(dataDirectory).map((d) => d.replace(/\.mdx$/, ''));
 }
 
 export const getAllPosts = (): PostMeta[] => {
   const files = fs.readdirSync(dataDirectory);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const posts = files.reduce((allPosts: any, postSlug: string) => {
     const content = fs.readFileSync(path.join(dataDirectory, postSlug), 'utf-8');
     const { data } = matter(content);
@@ -30,15 +31,15 @@ export const getAllPosts = (): PostMeta[] => {
     ];
   }, []);
 
-  return posts.sort((a: any, b: any) => Number(new Date(b.date)) - Number(new Date(a.date)));
+  return posts.sort((a: PostMeta, b: PostMeta) => Number(new Date(b.date)) - Number(new Date(a.date)));
 };
 
-export interface PostSlugType {
+export interface PostProps {
   source: MdxRemote.Source;
-  frontMatter: PostMetaSlug;
+  meta: PostMeta;
 }
 
-export const getPostBySlug = async (slug: string): Promise<PostSlugType> => {
+export const getPostBySlug = async (slug: string): Promise<PostProps> => {
   const source = fs.readFileSync(path.join(dataDirectory, `${slug}.mdx`), 'utf8');
 
   const { data, content } = matter(source);
@@ -50,9 +51,11 @@ export const getPostBySlug = async (slug: string): Promise<PostSlugType> => {
 
   return {
     source: mdxSource,
-    frontMatter: {
+    meta: {
       slug: slug || '',
-      ...data,
+      date: data.date,
+      summary: data.summary,
+      title: data.title,
     },
   };
 };

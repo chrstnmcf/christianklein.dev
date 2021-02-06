@@ -55,6 +55,10 @@ const BaseStyle = createGlobalStyle`
     ${tw`text-base`}
   }
 
+  p {
+    line-height: 1.75;
+  }
+
   u {
     ${tw`no-underline relative`}
     ${tw`after:(content block absolute w-full h-1 bottom-0 left-0 bg-blue-400 opacity-50)`}

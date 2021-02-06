@@ -4,12 +4,7 @@ interface PostMetaSlug {
 interface PostMeta extends PostMetaSlug {
   date: string;
   image?: string;
+  imageCredit?: string;
   summary: string;
   title: string;
-}
-
-type AttributeItems = { [key: string]: boolean };
-
-interface LicenceProps {
-  attributes: AttributeItems;
 }

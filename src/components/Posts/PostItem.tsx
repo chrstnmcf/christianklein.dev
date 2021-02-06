@@ -13,7 +13,6 @@ const PostGrid = styled.div`
 
 export default function PostItem({ meta }: { meta: PostMeta }) {
   const { date, slug, summary, title, image } = meta;
-  console.log({ image });
   const prettyDate = format(new Date(date), 'dd.MM.yyyy, H:mm');
 
   return (

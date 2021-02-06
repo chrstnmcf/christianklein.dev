@@ -4,7 +4,7 @@ import 'twin.macro';
 
 interface TitleProp {
   href?: string;
-  onClick?: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+  onClick: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
 }
 
 // interface TitleTagProp {
@@ -18,15 +18,17 @@ interface TitleProp {
 //   hover && tw`after:(w-full h-4/5)`,
 // ]);
 
-const Title = React.forwardRef<HTMLAnchorElement, TitleProp>(({ onClick, href }, ref) => {
-  // const [hover, setHover] = React.useState(false);
-  // onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
+const Title = React.forwardRef<HTMLAnchorElement, TitleProp>(
+  ({ onClick, href }, ref): JSX.Element => {
+    // const [hover, setHover] = React.useState(false);
+    // onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
 
-  return (
-    <a href={href} onClick={onClick} ref={ref}>
-      <h1 tw="text-xl text-gray-500 dark:text-gray-400">chrstnkln.</h1>
-    </a>
-  );
-});
+    return (
+      <a href={href} onClick={onClick} ref={ref}>
+        <h1 tw="m-0 text-xl text-gray-400 dark:text-gray-600">chrstnkln.</h1>
+      </a>
+    );
+  }
+);
 
 export default Title;

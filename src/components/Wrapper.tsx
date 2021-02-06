@@ -12,7 +12,7 @@ interface PageMeta {
   date?: string;
 }
 
-function Wrapper({ children, title, description, image, date }: React.PropsWithChildren<PageMeta>) {
+function Wrapper({ children, title, description, image, date }: React.PropsWithChildren<PageMeta>): JSX.Element {
   const router = useRouter();
 
   const pageName = 'christianklein.dev';

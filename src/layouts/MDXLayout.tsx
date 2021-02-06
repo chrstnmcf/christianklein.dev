@@ -7,7 +7,7 @@ interface MDXLayoutProps {
   meta: PostMeta;
 }
 
-export default function MDXLayout({ children, meta }: React.PropsWithChildren<{ meta: PostMeta; ohterProp: string }>) {
+export default function MDXLayout({ children, meta }: React.PropsWithChildren<MDXLayoutProps>): JSX.Element {
   const { title } = meta;
 
   return (

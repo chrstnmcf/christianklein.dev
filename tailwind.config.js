@@ -3,7 +3,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 // const plugin = require('tailwindcss/plugin');
 
 module.exports = {
-  purge: ['./pages/**/*.js', './components/**/*.js'],
+  purge: ['./src/**/*.js'],
   darkMode: 'class',
   theme: {
     fontFamily: {
@@ -34,12 +34,21 @@ module.exports = {
         DEFAULT: {
           css: {
             maxWidth: 'none',
-            color: theme('colors.gray.500'),
-            'h1, h2, h3': {
+            color: theme('colors.gray.700'),
+            h1: {
               color: theme('colors.gray.600'),
+              marginTop: theme('spacing.6'),
+              marginBottom: theme('spacing.3'),
+            },
+            'h2, h3': {
+              color: theme('colors.gray.500'),
+              marginTop: theme('spacing.6'),
+              marginBottom: theme('spacing.3'),
             },
             'h4, h5, h6': {
-              color: theme('colors.gray.500'),
+              color: theme('colors.gray.400'),
+              marginTop: theme('spacing.4'),
+              marginBottom: theme('spacing.2'),
             },
             a: {
               color: theme('colors.gray.400'),
@@ -52,11 +61,14 @@ module.exports = {
         dark: {
           css: {
             color: theme('colors.gray.200'),
-            'h1, h2, h3': {
+            h1: {
               color: theme('colors.gray.100'),
             },
-            'h4, h5, h6': {
+            'h2, h3': {
               color: theme('colors.gray.200'),
+            },
+            'h4, h5, h6': {
+              color: theme('colors.gray.300'),
             },
             a: {
               color: theme('colors.white'),

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import tw, { styled } from 'twin.macro';
+import 'twin.macro';
 import { format } from 'date-fns';
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 export default function Excerpt({ meta }: Props) {
   const { date, slug, summary, title } = meta;
 
-  const prettyDate = format(new Date(date), 'dd.MM.yyyy, H:mm');
+  const prettyDate = format(new Date(date), 'dd.MM.yyyy');
 
   return (
     <Link href={`posts/${slug}`}>
