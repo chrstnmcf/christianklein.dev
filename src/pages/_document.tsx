@@ -43,8 +43,15 @@ export default class MyDocument extends Document {
             type="font/woff2"
             crossOrigin="anonymous"
           />
+          <link rel="preload" href="/fonts/Montserrat-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+          <link
+            rel="preload"
+            href="/fonts/Montserrat-SemiBold.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
 
-          <link href="/fonts/style.css" rel="stylesheet" />
           <Favicons />
           <meta name="robots" content="follow, index" />
         </Head>
