@@ -5,7 +5,7 @@ import Main from '../components/Main';
 import Posts from '../components/Posts';
 import { getAllPosts } from '../utils/content';
 
-function Home({ posts }: { posts: PostType[] }) {
+function Home({ posts }: { posts: PostMeta[] }) {
   return (
     <Wrapper>
       <Main />
@@ -16,6 +16,7 @@ function Home({ posts }: { posts: PostType[] }) {
 
 export async function getStaticProps() {
   const posts = getAllPosts();
+
   return {
     props: { posts },
   };
