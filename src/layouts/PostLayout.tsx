@@ -10,7 +10,7 @@ interface PostLayoutProps {
   meta: PostMeta;
 }
 
-export default function PostLayout({ children, meta }: React.PropsWithChildren<PostLayoutProps>): JSX.Element {
+export default function PostLayout({ children, meta }: React.PropsWithChildren<PostLayoutProps>) {
   const { date, title, summary, imageCredit } = meta;
 
   const isoDate = new Date(date).toISOString();

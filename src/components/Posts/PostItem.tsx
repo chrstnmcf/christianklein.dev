@@ -19,7 +19,7 @@ export default function PostItem({ meta }: { meta: PostMeta }) {
     <PostGrid>
       <div>
         <h4>
-          <Link href={`posts/${slug}`}>
+          <Link href={`/posts/${slug}`}>
             <a>{title}</a>
           </Link>
         </h4>

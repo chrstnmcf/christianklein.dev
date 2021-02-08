@@ -36,14 +36,14 @@ const ToggleCircle = styled.span<ToggleStyleProps>(({ active, size }) => [
   size === 'md' && tw`h-4 w-4`,
 ]);
 
-export default function Toggle({ active = false, size = 'md', onClick }: ToggleProps): JSX.Element {
+export default function Toggle({ active = false, size = 'md', onClick }: ToggleProps) {
   const [activeState, setActiveState] = useState(active);
 
   const toggled = () => {
     setActiveState(!activeState);
 
     if (onClick) {
-      onClick(activeState);
+      onClick(!activeState);
     }
   };
 

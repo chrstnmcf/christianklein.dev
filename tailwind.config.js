@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable global-require */
-const defaultTheme = require('tailwindcss/defaultTheme');
 // const plugin = require('tailwindcss/plugin');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  purge: ['./src/**/*.js'],
+  purge: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   darkMode: 'class',
   theme: {
     fontFamily: {
@@ -60,11 +61,8 @@ module.exports = {
         },
         dark: {
           css: {
-            color: theme('colors.gray.200'),
-            h1: {
-              color: theme('colors.gray.100'),
-            },
-            'h2, h3': {
+            color: theme('colors.gray.100'),
+            'h1, h2, h3': {
               color: theme('colors.gray.200'),
             },
             'h4, h5, h6': {
@@ -82,4 +80,9 @@ module.exports = {
     },
   },
   plugins: [require('@tailwindcss/line-clamp'), require('@tailwindcss/typography')],
+  variants: {
+    extend: {
+      typography: ['dark'],
+    },
+  },
 };

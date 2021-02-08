@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 interface Props {
   href: string;
+  target?: string;
 }
 
 const CustomLink = (props: React.PropsWithChildren<Props>) => {

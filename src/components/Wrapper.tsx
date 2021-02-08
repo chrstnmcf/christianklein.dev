@@ -2,6 +2,8 @@ import Head from 'next/head';
 import 'twin.macro';
 import { useRouter } from 'next/router';
 
+import config from '../config';
+
 import Footer from './Footer';
 import Header from './Header';
 
@@ -12,17 +14,15 @@ interface PageMeta {
   date?: string;
 }
 
-function Wrapper({ children, title, description, image, date }: React.PropsWithChildren<PageMeta>): JSX.Element {
+function Wrapper({ children, title, description, image, date }: React.PropsWithChildren<PageMeta>) {
   const router = useRouter();
-
-  const pageName = 'christianklein.dev';
-  const pageUrl = `https://christianklein.dev${router.asPath}`;
-  const twitterHandle = '@chrstn_kl';
+  const pageUrl = `${config.link}${router.asPath}`;
+  const { twitterHandle } = config.social;
 
   const meta: PageMeta = {
-    title: title ? `${title} - ${pageName}` : pageName,
-    description: description || 'Developer and consultant. Tech enthusiast.',
-    image: image || 'https://christianklein.dev/images/banner.png',
+    title: title ? `${title} - ${config.title}` : config.title,
+    description: description || config.description,
+    image: image || config.image,
   };
 
   return (

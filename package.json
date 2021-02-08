@@ -53,8 +53,10 @@
     "twin.macro": "^2.2.2",
     "typescript": "^4.1.3"
   },
-  "hooks": {
-    "pre-commit": "lint-staged"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "**/*.{js,jsx}": [
