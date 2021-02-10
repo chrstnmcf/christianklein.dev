@@ -1,6 +1,5 @@
-import 'twin.macro';
-import hydrate from 'next-mdx-remote/hydrate';
 import { GetStaticPropsResult } from 'next';
+import hydrate from 'next-mdx-remote/hydrate';
 
 import { getPostBySlug, getSlugs, PostProps } from '../../utils/content';
 import MDXComponents from '../../components/MDXComponents';

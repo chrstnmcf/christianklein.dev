@@ -36,12 +36,15 @@ module.exports = {
           css: {
             maxWidth: 'none',
             color: theme('colors.gray.700'),
+            '[class~="lead"]': {
+              color: theme('colors.gray.800'),
+            },
             h1: {
               color: theme('colors.gray.600'),
               marginTop: theme('spacing.6'),
               marginBottom: theme('spacing.3'),
             },
-            'h2, h3': {
+            'h2, h3, strong': {
               color: theme('colors.gray.500'),
               marginTop: theme('spacing.6'),
               marginBottom: theme('spacing.3'),
@@ -61,17 +64,23 @@ module.exports = {
         },
         dark: {
           css: {
-            color: theme('colors.gray.100'),
-            'h1, h2, h3': {
-              color: theme('colors.gray.200'),
+            color: theme('colors.gray.200'),
+            '[class~="lead"]': {
+              color: theme('colors.gray.100'),
             },
-            'h4, h5, h6': {
+            h1: {
               color: theme('colors.gray.300'),
             },
+            'h2, h3, strong': {
+              color: theme('colors.gray.400'),
+            },
+            'h4, h5, h6': {
+              color: theme('colors.gray.500'),
+            },
             a: {
-              color: theme('colors.white'),
+              color: theme('colors.gray-400'),
               '&:hover': {
-                color: theme('colors.gray.400'),
+                color: theme('colors.white'),
               },
             },
           },

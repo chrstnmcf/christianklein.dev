@@ -13,11 +13,11 @@ const PostGrid = styled.div`
 
 export default function PostItem({ meta }: { meta: PostMeta }) {
   const { date, slug, summary, title, image } = meta;
-  const prettyDate = format(new Date(date), 'dd.MM.yyyy, H:mm');
+  const prettyDate = format(new Date(date), 'dd.MM.yyyy');
 
   return (
     <PostGrid>
-      <div>
+      <div tw="w-full">
         <h4>
           <Link href={`/posts/${slug}`}>
             <a>{title}</a>

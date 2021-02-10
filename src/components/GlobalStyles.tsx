@@ -47,7 +47,7 @@ const BaseStyle = createGlobalStyle`
   }
 
   html.dark > body {
-    ${tw`text-gray-100 bg-gray-900`}
+    ${tw`text-gray-200 bg-gray-900`}
   }
 
   a {

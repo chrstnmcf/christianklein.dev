@@ -28,7 +28,7 @@ export default function PostLayout({ children, meta }: React.PropsWithChildren<P
           <span tw="text-xs text-gray-400 dark:text-gray-600">{prettyDate}</span>
         </div>
       </div>
-      <article tw="prose">{children}</article>
+      <article tw="prose dark:prose-dark">{children}</article>
       {imageCredit && (
         <span tw="text-xs text-gray-300 dark:text-gray-600">
           <Markdown>{imageCredit}</Markdown>

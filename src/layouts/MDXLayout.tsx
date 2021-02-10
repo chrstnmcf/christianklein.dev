@@ -12,7 +12,7 @@ export default function MDXLayout({ children, meta }: React.PropsWithChildren<MD
 
   return (
     <Wrapper title={title}>
-      <article tw="prose">{children}</article>
+      <article tw="prose dark:prose-dark">{children}</article>
     </Wrapper>
   );
 }

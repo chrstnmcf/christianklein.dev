@@ -2,10 +2,7 @@
 import * as React from 'react';
 import 'twin.macro';
 
-interface TitleProp {
-  href?: string;
-  onClick?: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
-}
+import Link from './CustomLink';
 
 // interface TitleTagProp {
 //   hover: boolean;
@@ -18,15 +15,15 @@ interface TitleProp {
 //   hover && tw`after:(w-full h-4/5)`,
 // ]);
 
-const Title = React.forwardRef<HTMLAnchorElement, TitleProp>(({ onClick = () => {}, href }, ref) => {
+const Title = () => {
   // const [hover, setHover] = React.useState(false);
   // onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
 
   return (
-    <a href={href} onClick={onClick} ref={ref}>
-      <h1 tw="m-0 text-xl text-gray-400 dark:text-gray-600">chrstnkln.</h1>
-    </a>
+    <Link href="/" tw="flex flex-auto">
+      <h1 tw="m-0 text-xl text-gray-400 dark:text-gray-500">chrstnkln.</h1>
+    </Link>
   );
-});
+};
 
 export default Title;

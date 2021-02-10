@@ -26,7 +26,7 @@ function Wrapper({ children, title, description, image, date }: React.PropsWithC
   };
 
   return (
-    <main tw="relative flex flex-col h-screen justify-between">
+    <main tw="relative flex flex-col min-h-screen justify-between">
       <Head>
         <title>{meta.title}</title>
 
@@ -42,7 +42,7 @@ function Wrapper({ children, title, description, image, date }: React.PropsWithC
         {date && <meta property="article:published_time" content={date} />}
       </Head>
       <Header />
-      <section tw="container mb-auto">{children}</section>
+      <section tw="container mt-28 mb-auto">{children}</section>
       <Footer />
     </main>
   );
