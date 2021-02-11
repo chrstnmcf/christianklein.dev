@@ -24,7 +24,7 @@ export default function PostLayout({ children, meta }: React.PropsWithChildren<P
           <Image tw="rounded-full" src="/images/me.jpg" alt="Christian" width={32} height={32} />
         </figure>
         <div tw="ml-2 flex flex-col">
-          <span tw="text-sm text-gray-500 dark:text-gray-400">Christian Klein</span>
+          <span tw="text-sm font-semibold text-gray-500 dark:text-gray-400">Christian Klein</span>
           <span tw="text-xs text-gray-400 dark:text-gray-600">{prettyDate}</span>
         </div>
       </div>

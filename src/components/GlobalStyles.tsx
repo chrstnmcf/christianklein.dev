@@ -29,7 +29,7 @@ const BaseStyle = createGlobalStyle`
   @font-face {
     font-family: 'Montserrat';
     src: url('/fonts/Montserrat-SemiBold.woff2') format('woff2'), url('/fonts/Montserrat-SemiBold.ttf') format('truetype');
-    font-weight: 500;
+    font-weight: 600;
     font-style: normal;
     font-display: swap;
   }

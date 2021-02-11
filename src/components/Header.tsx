@@ -15,7 +15,7 @@ interface HeaderProps {
 
 const Header = styled.header<HeaderProps>(({ sticky }) => [
   tw`absolute inset-x-0 top-8 z-20 flex bg-white dark:bg-gray-900 h-12 transition-shadow`,
-  sticky && tw`fixed h-12 top-0 shadow-sm`,
+  sticky && tw`fixed h-12 top-0 shadow-sm dark:(border-b border-gray-800)`,
 ]);
 
 export default function HeaderComponent() {
