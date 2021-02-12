@@ -33,23 +33,39 @@ export default function HeaderComponent() {
         <Title />
         <ul tw="list-none grid grid-flow-col items-center gap-2 md:gap-3">
           <li>
-            <a tw="hover:text-black" href={config.social.github} rel="noreferrer" target="_blank">
+            <a tw="hover:text-black" href={config.social.github} rel="noreferrer" target="_blank" aria-label="GitHub">
               <Github size="24" />
             </a>
           </li>
           <li>
-            <a tw="hover:text-purple-500" href={config.social.linkedin} rel="noreferrer" target="_blank">
+            <a
+              tw="hover:text-purple-500"
+              href={config.social.linkedin}
+              rel="noreferrer"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
               <Linkedin size="24" />
             </a>
           </li>
           <li>
-            <a tw="hover:text-blue-400" href={config.social.twitter} rel="noreferrer" target="_blank">
+            <a
+              tw="hover:text-blue-400"
+              href={config.social.twitter}
+              rel="noreferrer"
+              target="_blank"
+              aria-label="Twitter"
+            >
               <Twitter size="24" />
             </a>
           </li>
           <li tw="flex">
             {mounted ? (
-              <Toggle active={theme === 'dark'} onClick={(active) => setTheme(active ? 'dark' : 'light')} />
+              <Toggle
+                active={theme === 'dark'}
+                label="Toggle dark mode"
+                onClick={(active) => setTheme(active ? 'dark' : 'light')}
+              />
             ) : (
               <span tw="w-9" />
             )}

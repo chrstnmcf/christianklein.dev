@@ -31,7 +31,7 @@ export const getAllPosts = (): PostMeta[] => {
     ];
   }, []);
 
-  return posts.sort((a: PostMeta, b: PostMeta) => Number(new Date(b.date)) - Number(new Date(a.date)));
+  return posts.sort((a: PostMeta, b: PostMeta) => new Date(b.date).getTime() - new Date(a.date).getTime());
 };
 
 export interface PostProps {

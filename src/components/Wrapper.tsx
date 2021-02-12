@@ -29,7 +29,7 @@ function Wrapper({ children, title, description, image, date }: React.PropsWithC
     <main tw="relative flex flex-col min-h-screen justify-between">
       <Head>
         <title>{meta.title}</title>
-
+        <meta name="description" content={meta.description} />
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.description} />
         <meta property="og:image" content={meta.image} />
