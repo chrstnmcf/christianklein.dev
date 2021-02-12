@@ -13,7 +13,7 @@ module.exports = {
     },
     extend: {
       boxShadow: {
-        md: '0 12px 35px rgba(0, 0 ,0 , 0.1)',
+        light: '0 12px 35px rgba(0, 0 ,0 , 0.1)',
         dark: '0 6px 25px rgba(255, 255 ,255 , 0.05)',
       },
       container: (theme) => ({
@@ -55,7 +55,7 @@ module.exports = {
               marginBottom: theme('spacing.2'),
             },
             a: {
-              color: theme('colors.gray.400'),
+              color: theme('colors.gray.600'),
               '&:hover': {
                 color: theme('colors.gray.700'),
               },
@@ -78,9 +78,9 @@ module.exports = {
               color: theme('colors.gray.500'),
             },
             a: {
-              color: theme('colors.gray-400'),
+              color: theme('colors.white'),
               '&:hover': {
-                color: theme('colors.white'),
+                color: theme('colors.gray-300'),
               },
             },
           },

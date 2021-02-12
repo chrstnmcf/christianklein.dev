@@ -33,13 +33,19 @@ export default function HeaderComponent() {
         <Title />
         <ul tw="list-none grid grid-flow-col items-center gap-2 md:gap-3">
           <li>
-            <a tw="hover:text-black" href={config.social.github} rel="noreferrer" target="_blank" aria-label="GitHub">
+            <a
+              tw="text-gray-400 dark:text-gray-500 hover:text-black"
+              href={config.social.github}
+              rel="noreferrer"
+              target="_blank"
+              aria-label="GitHub"
+            >
               <Github size="24" />
             </a>
           </li>
           <li>
             <a
-              tw="hover:text-purple-500"
+              tw="text-gray-400 dark:text-gray-500 hover:text-purple-500"
               href={config.social.linkedin}
               rel="noreferrer"
               target="_blank"
@@ -50,7 +56,7 @@ export default function HeaderComponent() {
           </li>
           <li>
             <a
-              tw="hover:text-blue-400"
+              tw="text-gray-400 dark:text-gray-500 hover:text-blue-400"
               href={config.social.twitter}
               rel="noreferrer"
               target="_blank"

@@ -43,7 +43,7 @@ const BaseStyle = createGlobalStyle`
   }
 
   body {
-    ${tw`font-sans text-gray-500 bg-white`}
+    ${tw`font-sans text-gray-700 bg-white`}
   }
 
   html.dark > body {
@@ -51,10 +51,10 @@ const BaseStyle = createGlobalStyle`
   }
 
   a {
-    ${tw`text-gray-400 dark:text-white transition-colors`}
+    ${tw`text-gray-600 dark:text-white transition-colors`}
 
     &:hover {
-      ${tw`text-gray-700 dark:text-gray-400`}
+      ${tw`text-gray-700 dark:text-gray-300`}
     }
   }
 
@@ -69,13 +69,13 @@ const BaseStyle = createGlobalStyle`
 
   h1 {
     ${tw`text-gray-700 dark:text-gray-100`}
-    ${tw`text-4xl sm:text-5xl lg:text-6xl`}
+    ${tw`text-3xl sm:text-5xl lg:text-6xl`}
     ${tw`mb-2 lg:mb-3`}
   }
 
   h2 {
     ${tw`text-gray-500 dark:text-white`}
-    ${tw`text-3xl sm:text-4xl`}
+    ${tw`text-2xl sm:text-4xl`}
     ${tw`mb-2 lg:mb-3`}
   }
 
