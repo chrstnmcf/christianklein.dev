@@ -1,0 +1,3 @@
+{
+  "redirects": [{ "source": "/rss", "destination": "/api/rss" }]
+}
