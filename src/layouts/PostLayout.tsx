@@ -18,7 +18,7 @@ export default function PostLayout({ children, meta }: React.PropsWithChildren<P
 
   return (
     <Wrapper title={title} date={isoDate} description={summary}>
-      <h2 tw="mb-1">{title}</h2>
+      <h1 tw="mb-1 text-2xl sm:text-4xl">{title}</h1>
       <div tw="mb-6 flex items-center">
         <figure tw="flex">
           <Image tw="rounded-full" src="/images/me.jpg" alt="Christian" width={32} height={32} />
@@ -30,9 +30,9 @@ export default function PostLayout({ children, meta }: React.PropsWithChildren<P
       </div>
       <article tw="prose dark:prose-dark">{children}</article>
       {imageCredit && (
-        <span tw="text-xs text-gray-300 dark:text-gray-600">
+        <div tw="mt-4 text-xs text-gray-400 dark:text-gray-600">
           <Markdown>{imageCredit}</Markdown>
-        </span>
+        </div>
       )}
     </Wrapper>
   );

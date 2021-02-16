@@ -55,18 +55,19 @@ module.exports = {
               marginBottom: theme('spacing.2'),
             },
             a: {
-              color: theme('colors.gray.600'),
+              color: theme('colors.blue.500'),
+              fontWeight: 600,
               '&:hover': {
-                color: theme('colors.gray.700'),
+                color: theme('colors.blue.400'),
               },
             },
           },
         },
         dark: {
           css: {
-            color: theme('colors.gray.200'),
+            color: theme('colors.gray.100'),
             '[class~="lead"]': {
-              color: theme('colors.gray.100'),
+              color: theme('colors.white'),
             },
             h1: {
               color: theme('colors.gray.300'),
@@ -78,10 +79,46 @@ module.exports = {
               color: theme('colors.gray.500'),
             },
             a: {
-              color: theme('colors.white'),
+              color: theme('colors.blue.400'),
               '&:hover': {
-                color: theme('colors.gray-300'),
+                color: theme('colors.blue.500'),
               },
+            },
+            strong: {
+              color: theme('colors.gray.200'),
+            },
+            'ol > li::before': {
+              color: theme('colors.gray.400'),
+            },
+            'ul > li::before': {
+              backgroundColor: theme('colors.gray.600'),
+            },
+            hr: {
+              borderColor: theme('colors.gray.300'),
+            },
+            blockquote: {
+              color: theme('colors.gray.300'),
+              borderLeftColor: theme('colors.gray.600'),
+            },
+            'figure figcaption': {
+              color: theme('colors.gray.400'),
+            },
+            code: {
+              color: theme('colors.gray.300'),
+            },
+            'a code': {
+              color: theme('colors.gray.300'),
+            },
+            pre: {
+              color: theme('colors.gray.300'),
+              backgroundColor: theme('colors.gray.800'),
+            },
+            thead: {
+              color: theme('colors.gray.200'),
+              borderBottomColor: theme('colors.gray.400'),
+            },
+            'tbody tr': {
+              borderBottomColor: theme('colors.gray.600'),
             },
           },
         },

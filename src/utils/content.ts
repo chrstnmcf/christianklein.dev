@@ -31,7 +31,9 @@ export const getAllPosts = (): PostMeta[] => {
     ];
   }, []);
 
-  return posts.sort((a: PostMeta, b: PostMeta) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return posts
+    .filter((post: PostMeta) => new Date(post.date).getTime() <= new Date().getTime())
+    .sort((a: PostMeta, b: PostMeta) => new Date(b.date).getTime() - new Date(a.date).getTime());
 };
 
 export interface PostProps {
@@ -43,6 +45,7 @@ export const getPostBySlug = async (slug: string): Promise<PostProps> => {
   const source = fs.readFileSync(path.join(dataDirectory, `${slug}.mdx`), 'utf8');
 
   const { data, content } = matter(source);
+  const blogData = data as PostMeta;
 
   const mdxSource = await renderToString(content, {
     components: MDXComponents,
@@ -52,10 +55,8 @@ export const getPostBySlug = async (slug: string): Promise<PostProps> => {
   return {
     source: mdxSource,
     meta: {
+      ...blogData,
       slug: slug || '',
-      date: data.date,
-      summary: data.summary,
-      title: data.title,
     },
   };
 };

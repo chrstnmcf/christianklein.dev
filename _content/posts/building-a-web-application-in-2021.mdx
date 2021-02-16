@@ -1,0 +1,80 @@
+---
+title: 'Building a web application in 2021'
+date: '2021-02-13'
+summary:
+  'Building a web site in 2021 is not that hard - at least if you have some experience in frontend development. There
+  are so many tools, frameworks and libraries out in the wild that the real tricky thing is: what to use? I want to
+  write down some of the reasons why I chose the underlying tech stack for building this site.'
+image: '/images/posts/helloworld.png'
+---
+
+Building a web application in 2021 isn't that hard - at least if you have some experience in frontend development There
+are so many tools, frameworks and libraries out in the wild that the real tricky thing is: what to use? I want to write
+down some of the reasons why I chose the underlying tech stack for building this site.
+
+<Image src="/images/posts/helloworld.png" alt="Nextjs" width={902} height={436} priority />
+
+## The framework
+
+Since I'm developing with React for quite a while now, the question when I started thinking about building this site
+wasn't React or no React. It was Next.js or Gatbsy. While Gatsby is used for creating static-pages with high
+performance, Next.js is a powerful framework for static and server-rendered applications. I have both worked with
+Next.js and Gatsby and both would be suitable for builing a site like this, you could even argue that Gatsby would be
+the perfect fit. I don't need to fetch data from an external source, all posts are written in markdown (and even stored
+in the repository) and there is no real need for server-rendered stuff, all pages could be static. But Next.js also
+supports static site generation since version 9.3 and in general I have the impression that Next.js currently has a
+higher momentum and feels more powerful than Gatsby, where I would be more limited. The benefit of Next.js is that you
+can start with a minimal setup but it also can scale up easiliy at a later stage without rewriting your whole
+application. Cool, right? And let's be honest, since the whole porpuse of building this site was to have fun building
+and playing around with it, I chose Next.js. After all, it should also be my playground to try out things. 😀
+
+## The styling
+
+Also I finally wanted to get some hands on work with [TailwindCSS](https://tailwindcss.com/) which is a utility-first
+CSS framework. I was struggling with the decision to go for it because I'm also a huge fan of
+[styled-components](https://styled-components.com/) - a CSS-in-JS library which allows you to write your CSS alongside
+your components in JavaScript. So chosing a utility-first framework in favor of a powerful CSS-in-JS library I have used
+for several projects? I was a bit reluctant until I stumbled across
+[twin.macro](https://github.com/ben-rogerson/twin.macro), which I read about in a post of the creator of
+styled-components ([Why I Love Tailwind](https://mxstbr.com/thoughts/tailwind/)). Twin combines the capabilities of
+Tailwind with the flexibility of CSS-in-JS and you can even combine it with libraries such as styled-components (but
+also for example emotion).
+
+After that it was settled! And to be honest, I wouldn't want to miss it. It really feels convinient to style your
+components with TailwindCSS but still have the option to share your stylings or add conditional styles.
+
+## The rest
+
+Now the framework is set up and we can also style our pages but now we need to show some content (e.g. some articles
+like this). but I also want to have some content (e.g. some articles I want to publish on my page) and some place to
+store it. I decided to manage all the posts for this site using local markdown files. All posts are stored in the
+`_content/posts/` directory enriched with some front-matter meta definitions. Maybe I write about this particular setup
+in a dedicated post.
+
+Of course it doesn't stop there. I also wanted to use TypeScript for type safety and ESLint for analysing my code and
+enforcing coding conventions. For a small project this might be a bit much but I'm also using setups like this in other
+projects. To quickly start a new project with a similar setup I created
+[next-twin-starter](https://github.com/chrstnkl/next-twin-starter) which includes Next.js, TailwindCSS, twin.macro,
+styled-components, TypeScript, ESLint and Prettier, all pre-configured for my needs. Feel free to take a look!
+
+## Deploy
+
+Finally we're done building our web application! But where to deploy it? If I would've used the static-site generation
+functionality of Next.js (`next export`, you can read more about it
+[here](https://nextjs.org/docs/advanced-features/static-html-export)) I could've hosted this site everywhere, even in a
+S3 bucket. But since I didn't do that I need a server with Node.js support. Now there are also many alternatives, you
+could host it on your own custom server (with Node.js, if you have one), you could go for AWS or Azure or host it on
+Vercel or Netlify. Both Vercel and Netlify are quite similar and offer easy seamless deployment of your web application
+on a free as you grow pricing model. The differences can be found more in the detail. The main advantage of Vercel is
+that it's the same team that also built Next.js so they're hosting solution is perfectly aligned with Next.js. And you
+can start right away with literally zero configuration, you just have to link your repository and off you go!
+
+To sum it up, this is the tech stack that I used for builing [christianklein.dev](https://christianklein.dev/).
+
+- [TypeScript](https://www.typescriptlang.org/)
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [twin.macro](https://github.com/ben-rogerson/twin.macro)
+- [styled-components](https://styled-components.com/)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
