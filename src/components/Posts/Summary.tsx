@@ -17,7 +17,7 @@ const Card = tw.span`
   hover:(text-gray-700 border-white dark:text-gray-300 dark:border-gray-800 shadow-light dark:shadow-dark dark:bg-gray-800)
 `;
 
-export default function Excerpt({ meta }: Props) {
+export default function Summary({ meta }: Props) {
   const { date, slug, summary, title } = meta;
 
   const prettyDate = format(new Date(date), 'dd.MM.yyyy');

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import 'twin.macro';
 
-import Excerpt from './Excerpt';
+import Excerpt from './Summary';
 
 interface Props {
   posts?: PostMeta[];

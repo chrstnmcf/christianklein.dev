@@ -1,7 +1,8 @@
-import Link from 'next/link';
 import tw, { styled } from 'twin.macro';
 import { format } from 'date-fns';
 import Image from 'next/image';
+
+import Link from '../CustomLink';
 
 const PostGrid = styled.div`
   ${tw`py-8 relative grid grid-rows-2 md:grid-rows-none md:grid-flow-col gap-6 items-center justify-items-center`}
@@ -18,11 +19,9 @@ export default function PostItem({ meta }: { meta: PostMeta }) {
   return (
     <PostGrid>
       <div tw="w-full">
-        <h4>
-          <Link href={`/posts/${slug}`}>
-            <a>{title}</a>
-          </Link>
-        </h4>
+        <Link href={`/posts/${slug}`} tw="text-gray-700 dark:text-gray-200 hover:(text-gray-500 dark:text-gray-500)">
+          <h4>{title}</h4>
+        </Link>
         <span tw="text-xs text-gray-400 dark:text-gray-500">{prettyDate}</span>
         <p>{summary}</p>
       </div>
