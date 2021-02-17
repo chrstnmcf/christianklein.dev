@@ -30,7 +30,10 @@ export default function HeaderComponent() {
   return (
     <Header sticky={sticky}>
       <div tw="container flex items-center justify-between text-gray-400">
-        <Title />
+        <div>
+          <Title />
+        </div>
+
         <ul tw="list-none grid grid-flow-col items-center gap-2 md:gap-3">
           <li>
             <a

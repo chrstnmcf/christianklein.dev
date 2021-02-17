@@ -32,7 +32,7 @@ const createFeed = (): string => {
     posts.slice(0, 10).forEach((post) => {
       const postUrl = `${link}/posts/${post.slug}`;
       const postDate = new Date(post.date);
-      const postImage = post.image && `${link}/${post.image}`;
+      const postImage = post.image && `${link}${post.image}`;
 
       feed.addItem({
         title: post.title,
