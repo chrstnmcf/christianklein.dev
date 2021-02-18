@@ -8,7 +8,7 @@ summary:
 image: '/images/posts/helloworld.png'
 ---
 
-Building a web application in 2021 isn't that hard - at least if you have some experience in frontend development There
+Building a web application in 2021 isn't that hard - at least if you have some experience in frontend development. There
 are so many tools, frameworks and libraries out in the wild that the real tricky thing is: what to use? I want to write
 down some of the reasons why I chose the underlying tech stack for building this site.
 
@@ -17,16 +17,19 @@ down some of the reasons why I chose the underlying tech stack for building this
 ## The framework
 
 Since I'm developing with React for quite a while now, the question when I started thinking about building this site
-wasn't React or no React. It was Next.js or Gatbsy. While Gatsby is used for creating static-pages with high
-performance, Next.js is a powerful framework for static and server-rendered applications. I have both worked with
-Next.js and Gatsby and both would be suitable for building a site like this, you could even argue that Gatsby would be
-the perfect fit. I don't need to fetch data from an external source, all posts are written in markdown (and even stored
-in the repository) and there is no real need for server-rendered stuff, all pages could be static. But Next.js also
-supports static site generation since version 9.3 and in general I have the impression that Next.js currently has a
-higher momentum and feels more powerful than Gatsby, where I would be more limited. The benefit of Next.js is that you
-can start with a minimal setup but it also can scale up easily at a later stage without rewriting your whole
-application. Cool, right? And let's be honest, since the whole purpose of building this site was to have fun building
-and playing around with it, I chose Next.js. After all, it should also be my playground to try out things. 😀
+wasn't React or no React. It was Next.js or Gatbsy. Now Gatbsy is a static site generator, meaning that you build your
+application in React but the output in the end (so what is delivered to the user) are static HTML pages which are
+generated on build time - for every page/route that you define Gatsby will create a dedicated HTML page. Next.js on the
+other hand is a powerful framework for static and server-side rendered (SSR) applications. In general, SSR means that
+when you request a page, it's pre-rendered on the server. I have both worked with Next.js and Gatsby and both would be
+suitable for building a site like this, you could even argue that Gatsby would be the perfect fit. I don't need to fetch
+data from an external source, all posts are written in markdown (and even stored in the repository) and there is no real
+need for server-rendered stuff, all pages could be static. But Next.js also supports static site generation since
+version 9.3 and in general I have the impression that Next.js currently has a higher momentum and feels more powerful
+than Gatsby, where I would be more limited. The benefit of Next.js is that you can start with a minimal setup but it
+also can scale up easily at a later stage without rewriting your whole application. Cool, right? And let's be honest,
+since the whole purpose of building this site was to have fun building and playing around with it, I chose Next.js.
+After all, it should also be my playground to try out things. 😀
 
 ## The styling
 
@@ -46,8 +49,7 @@ components with TailwindCSS but still have the option to share your stylings or 
 ## The rest
 
 Now the framework is set up and we can also style our pages but now we need to show some content (e.g. some articles
-like this). but I also want to have some content (e.g. some articles I want to publish on my page) and some place to
-store it. I decided to manage all the posts for this site using local markdown files. All posts are stored in the
+like this). I decided to manage all the posts for this site using local markdown files. All posts are stored in the
 `_content/posts/` directory enriched with some front-matter meta definitions. Maybe I write about this particular setup
 in a dedicated post.
 

@@ -11,13 +11,13 @@ interface PostLayoutProps {
 }
 
 export default function PostLayout({ children, meta }: React.PropsWithChildren<PostLayoutProps>) {
-  const { date, title, summary, imageCredit } = meta;
+  const { date, title, summary, image, imageCredit } = meta;
 
   const isoDate = new Date(date).toISOString();
   const prettyDate = format(new Date(date), 'dd.MM.yyyy');
 
   return (
-    <Wrapper title={title} date={isoDate} description={summary}>
+    <Wrapper date={isoDate} description={summary} image={image} title={title}>
       <h1 tw="mb-1 text-2xl sm:text-4xl">{title}</h1>
       <div tw="mb-6 flex items-center">
         <figure tw="flex">
