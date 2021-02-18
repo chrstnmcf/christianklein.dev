@@ -25,6 +25,8 @@ function Wrapper({ children, title, description, image, date }: React.PropsWithC
     image: image || config.image,
   };
 
+  const metaImage = meta.image?.startsWith('http') ? meta.image : `${config.link}${meta.image}`;
+
   return (
     <main tw="relative flex flex-col min-h-screen justify-between">
       <Head>
@@ -32,12 +34,12 @@ function Wrapper({ children, title, description, image, date }: React.PropsWithC
         <meta name="description" content={meta.description} />
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.description} />
-        <meta property="og:image" content={meta.image} />
+        <meta property="og:image" content={metaImage} />
         <meta property="og:url" content={pageUrl} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
-        <meta name="twitter:image" content={meta.image} />
+        <meta name="twitter:image" content={metaImage} />
         <meta name="twitter:site" content={twitterHandle} />
         {date && <meta property="article:published_time" content={date} />}
       </Head>
