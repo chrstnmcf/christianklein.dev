@@ -12,7 +12,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx,.mdx",
+    "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "yarn lint --fix"
   },
   "dependencies": {

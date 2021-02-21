@@ -34,23 +34,24 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            maxWidth: 'none',
+            maxWidth: '70ch',
+            margin: '0 auto',
             color: theme('colors.gray.700'),
             '[class~="lead"]': {
               color: theme('colors.gray.800'),
             },
             h1: {
-              color: theme('colors.gray.600'),
+              color: theme('text-gray-700'),
               marginTop: theme('spacing.6'),
               marginBottom: theme('spacing.3'),
             },
             'h2, h3, strong': {
-              color: theme('colors.gray.500'),
+              color: theme('colors.gray.600'),
               marginTop: theme('spacing.6'),
               marginBottom: theme('spacing.3'),
             },
             'h4, h5, h6': {
-              color: theme('colors.gray.400'),
+              color: theme('colors.gray.500'),
               marginTop: theme('spacing.4'),
               marginBottom: theme('spacing.2'),
             },
@@ -70,7 +71,7 @@ module.exports = {
               color: theme('colors.white'),
             },
             h1: {
-              color: theme('colors.gray.300'),
+              color: theme('colors.gray.200'),
             },
             'h2, h3, strong': {
               color: theme('colors.gray.400'),

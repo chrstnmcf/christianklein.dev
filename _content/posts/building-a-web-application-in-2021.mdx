@@ -40,8 +40,15 @@ your components in JavaScript. So chosing a utility-first framework in favor of 
 for several projects? I was a bit reluctant until I stumbled across
 [twin.macro](https://github.com/ben-rogerson/twin.macro), which I read about in a post of the creator of
 styled-components ([Why I Love Tailwind](https://mxstbr.com/thoughts/tailwind/)). Twin combines the capabilities of
-Tailwind with the flexibility of CSS-in-JS and you can even combine it with libraries such as styled-components (but
-also for example emotion).
+Tailwind with the flexibility of CSS-in-JS and you can combine it with libraries such as styled-components (but also for
+example emotion). This could look something like this:
+
+```js
+const Header = styled.header<HeaderProps>(({ sticky }) => [
+  tw`absolute inset-x-0 top-8 z-20 flex bg-white dark:bg-gray-900 h-12 transition-shadow`,
+  sticky && tw`fixed h-12 top-0 shadow-sm dark:(border-b border-gray-800)`,
+]);
+```
 
 After that it was settled! And to be honest, I wouldn't want to miss it. It really feels convenient to style your
 components with TailwindCSS but still have the option to share your stylings or add conditional styles.
