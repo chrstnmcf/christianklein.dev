@@ -31,9 +31,7 @@ export const getAllPosts = (): PostMeta[] => {
     ];
   }, []);
 
-  return posts
-    .filter((post: PostMeta) => new Date(post.date).getTime() <= new Date().getTime())
-    .sort((a: PostMeta, b: PostMeta) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return posts.sort((a: PostMeta, b: PostMeta) => new Date(b.date).getTime() - new Date(a.date).getTime());
 };
 
 export interface PostProps {
