@@ -1,6 +1,7 @@
-import Link from 'next/link';
 import tw from 'twin.macro';
 import { format } from 'date-fns';
+
+import Link from '../CustomLink';
 
 interface Props {
   meta: PostMeta;
@@ -24,13 +25,11 @@ export default function Summary({ meta }: Props) {
 
   return (
     <Link href={`/posts/${slug}`}>
-      <a>
-        <Card>
-          <h4>{title}</h4>
-          <span tw="text-xs text-gray-400 dark:text-gray-500 mb-2">{prettyDate}</span>
-          <p tw="line-clamp-3 text-sm">{summary}</p>
-        </Card>
-      </a>
+      <Card>
+        <h4>{title}</h4>
+        <span tw="text-xs text-gray-400 dark:text-gray-500 mb-2">{prettyDate}</span>
+        <p tw="line-clamp-3 text-sm">{summary}</p>
+      </Card>
     </Link>
   );
 }

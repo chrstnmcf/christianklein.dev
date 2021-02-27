@@ -1,5 +1,6 @@
-import Link from 'next/link';
 import 'twin.macro';
+
+import Link from '../CustomLink';
 
 import Excerpt from './Summary';
 

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-param-reassign */
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
