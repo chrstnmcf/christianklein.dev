@@ -100,6 +100,79 @@ const BaseStyle = createGlobalStyle`
     ${tw`no-underline relative`}
     ${tw`after:(content block absolute w-full h-1 bottom-0 left-0 bg-blue-400 opacity-50)`}
   }
+
+
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+    color: hsl(0, 0%, 47%); /* #777777 */
+    ${tw`text-gray-500`}
+  }
+
+  .token.punctuation {
+    ${tw`text-gray-300`}
+  }
+
+  .token.tag,
+  .token.boolean,
+  .token.number,
+  .token.deleted {
+    color: hsl(14, 58%, 55%); /* #CF6A4C */
+    ${tw`text-red-500`}
+  }
+
+  .token.keyword,
+  .token.property,
+  .token.selector,
+  .token.constant,
+  .token.symbol,
+  .token.builtin {
+    color: hsl(53, 89%, 79%); /* #F9EE98 */
+    ${tw`text-yellow-500`}
+  }
+
+  .token.attr-name,
+  .token.attr-value,
+  .token.string,
+  .token.char,
+  .token.operator,
+  .token.entity,
+  .token.url,
+  .language-css .token.string,
+  .style .token.string,
+  .token.variable,
+  .token.inserted {
+    color: hsl(76, 21%, 52%); /* #8F9D6A */
+  }
+
+  .token.atrule {
+    color: hsl(218, 22%, 55%); /* #7587A6 */
+  }
+
+  .token.regex,
+  .token.important {
+    color: hsl(42, 75%, 65%); /* #E9C062 */
+  }
+
+  .token.important,
+  .token.bold {
+    font-weight: bold;
+  }
+  .token.italic {
+    font-style: italic;
+  }
+
+  .token.entity {
+    cursor: help;
+  }
+
+  /* Markup */
+  .language-markup .token.tag,
+  .language-markup .token.attr-name,
+  .language-markup .token.punctuation {
+    color: hsl(33, 33%, 52%); /* #AC885B */
+  }
 `;
 
 export default function GlobalStylesComponent() {

@@ -1,10 +1,7 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable global-require */
-// const plugin = require('tailwindcss/plugin');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  purge: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
+  purge: ['./src/**/*.{js,ts,jsx,tsx,mdx}', './_content/**/*.mdx'],
   darkMode: 'class',
   theme: {
     fontFamily: {
@@ -62,6 +59,11 @@ module.exports = {
                 color: theme('colors.blue.400'),
               },
             },
+            code: {
+              padding: theme('spacing.1'),
+              background: theme('colors.gray.200'),
+              borderRadius: theme('borderRadius.md'),
+            },
           },
         },
         dark: {
@@ -106,6 +108,7 @@ module.exports = {
             },
             code: {
               color: theme('colors.gray.300'),
+              background: theme('colors.gray.700'),
             },
             'a code': {
               color: theme('colors.gray.300'),
@@ -114,12 +117,23 @@ module.exports = {
               color: theme('colors.gray.300'),
               backgroundColor: theme('colors.gray.800'),
             },
+            'pre code': {
+              backgroundColor: theme('colors.gray.800'),
+            },
             thead: {
               color: theme('colors.gray.200'),
               borderBottomColor: theme('colors.gray.400'),
             },
             'tbody tr': {
               borderBottomColor: theme('colors.gray.600'),
+            },
+          },
+        },
+        bleed: {
+          css: {
+            'pre, image': {
+              'margin-left': '-2.5rem',
+              'margin-right': '-2.5rem',
             },
           },
         },

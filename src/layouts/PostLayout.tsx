@@ -18,7 +18,7 @@ export default function PostLayout({ children, meta }: React.PropsWithChildren<P
 
   return (
     <Wrapper date={isoDate} description={summary} image={image} title={title}>
-      <article tw="prose dark:prose-dark">
+      <article tw="prose dark:prose-dark lg:prose-bleed">
         <h1 tw="text-2xl sm:text-4xl">{title}</h1>
         <div tw="mb-6 flex items-center">
           <div tw="flex">

@@ -3,6 +3,7 @@ import path from 'path';
 
 import matter from 'gray-matter';
 import renderToString from 'next-mdx-remote/render-to-string';
+import rehypePrism from '@mapbox/rehype-prism';
 import { MdxRemote } from 'next-mdx-remote/types';
 
 import MDXComponents from '../components/MDXComponents';
@@ -48,6 +49,9 @@ export const getPostBySlug = async (slug: string): Promise<PostProps> => {
   const mdxSource = await renderToString(content, {
     components: MDXComponents,
     scope: data,
+    mdxOptions: {
+      rehypePlugins: [rehypePrism],
+    },
   });
 
   return {

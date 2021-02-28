@@ -10,9 +10,9 @@ interface Props {
 
 const CustomLink = (props: React.PropsWithChildren<Props>) => {
   const { href } = props;
-  const isInternal = href && (href.startsWith('/') || href.startsWith('#'));
+  const internal = href && (href.startsWith('/') || href.startsWith('#'));
 
-  if (isInternal) {
+  if (internal) {
     return (
       <Link href={href}>
         <a {...props} />
