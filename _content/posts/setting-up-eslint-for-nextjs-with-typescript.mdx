@@ -1,0 +1,163 @@
+---
+title: 'ESLint for Next.js with TypeScript'
+date: '2021-03-01'
+summary:
+  'How to set up ESLint with Next.js, TypeScript, Prettier and Airbnb configuration the right way? There are already a
+  ton of posts out there how to set it all up but none met my expectations. So I want to share with you the ESLint
+  configuration I have set up for this project.'
+---
+
+How to set up ESLint with Next.js, TypeScript, Prettier and Airbnb configuration the right way? There are already a ton
+of posts out there how to set it all up but none met my expectations. So I want to share with you the ESLint
+configuration I have set up for this project.
+
+Configuring ESLint isn't hard, right? You just install the dependency with `yarn install eslint`, run
+`npx eslint --init`, follow the instructions, select TypeScript and maybe some code styling configuration like the one
+from Airbnb - that's it. If you want to avoid conflicts with Prettier then you also install the `eslint-prettier-config`
+dependency, add it to your list of plugins and off you go. Happy linting!
+
+```bash
+/.../christianklein.dev/src/pages/_app.tsx
+   6:35  error  Unable to resolve path to module '../components/GlobalStyles'   import/no-unresolved
+   6:35  error  Missing file extension for "../components/GlobalStyles"         import/extensions
+   7:27  error  Unable to resolve path to module '../components/MDXComponents'  import/no-unresolved
+   7:27  error  Missing file extension for "../components/MDXComponents"        import/extensions
+  11:5   error  'React' must be in scope when using JSX                         react/react-in-jsx-scope
+  11:5   error  JSX not allowed in files with extension '.tsx'                  react/jsx-filename-extension
+  12:7   error  'React' must be in scope when using JSX                         react/react-in-jsx-scope
+  13:9   error  'React' must be in scope when using JSX                         react/react-in-jsx-scope
+  14:9   error  'React' must be in scope when using JSX                         react/react-in-jsx-scope
+```
+
+Oh dear! What happened here? The `eslint-plugin-import` plugin can't resolve imports from files with the `.tsx`
+extension, `eslint-plugin-react` doesn't know about the `.tsx` extension as well and also expects
+`import * as React from 'react'` which we don't need in Next.js (and also in React >= 17). So we obviously need to
+adjust the configuration ESLint just created for us. But how? Let's start with the easy adjustments first.
+
+```js
+{
+  // ...
+  extends: ['plugin:react/recommended', 'prettier'],
+  rules: {
+    // 1: Turn off rules that are no longer necessary in React 17 and in Next.js
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
+    // 2: We do not need to use prop types with TypeScript
+    'react/prop-types': 'off',
+    'react/require-default-props': 'off',
+  },
+}
+```
+
+**First**, let's turn off the rules that are
+[no longer necessary in React 17](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#eslint) and
+in Next.js in general. **Second**, since we use TypeScript we don't need to use prop types but we define the actual
+types using TypeScript. And then there is the `<Link>` component from Next.js. Since you need to wrap the child of the
+`<Link>` component in an additional `<a>` tag, the `jsx-a11y/anchor-is-valid` rule complains because we didn't add the
+`href` attribute to the `<a>` tag. Both the maintainers of the
+[eslint-plugin-jsx-a11y plugin](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md#case-i-use-nextjs-and-im-getting-this-error-inside-of-links)
+and the [developers of Next.js](https://github.com/vercel/next.js/issues/5533#issuecomment-760776479) are aware of this
+issue. They propose different solutions, the easiest would be to globally turn `jsx-a11y/anchor-is-valid` off in your
+eslint config. But I decided to go for a custom link component which looks like this:
+
+```js
+/* eslint-disable jsx-a11y/anchor-has-content */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/jsx-props-no-spreading */
+const CustomLink = (props: React.PropsWithChildren<Props>) => {
+  const { href } = props;
+  const internal = href && (href.startsWith('/') || href.startsWith('#'));
+
+  if (internal) {
+    return (
+      <Link href={href}>
+        <a {...props} />
+      </Link>
+    );
+  }
+
+  return <a target="_blank" rel="noreferrer noopener" {...props} />;
+};
+```
+
+This way I only need to disable the rules from jsx-a11y in this specifc component file.
+
+Now that's settled we can concentrate on the remaining TypeScript related issues. Since the Airbnb configuration is made
+for using JavaScript but has no TypeScript support, I decided to go for the
+[eslint-config-airbnb-typescript](https://www.npmjs.com/package/eslint-config-airbnb-typescript) configuration which
+adds exactly that. So instead of extending the basic Airbnb eslint configuration in your `.eslintrc.js`, you
+`"extends": "airbnb-typescript"`. This configuration however needs knowledge of your TypeScript configuration so you
+have to specify your `tsconfig.json` in the eslint configuration:
+
+```js
+module.exports = {
+  extends: ['airbnb-typescript'],
+  // ...
+  parserOptions: {
+    project: './tsconfig.json',
+  },
+};
+```
+
+Ok perfect, now all TypeScript files (`.ts` and `.tsx`) should be fine! But if you lint any regular JavaScript files you
+see the following parsing error:
+
+```
+Parsing error: "parserOptions.project" has been set for @typescript-eslint/parser.
+  The file does not match your project config: next.config.js.
+  The file must be included in at least one of the projects provided.
+```
+
+Obviously it only makes sense to specify `.ts` and `.tsx` files in your `tsconfig.json`. This is why I decided to make
+use of the glob patterns and put the TypeScript specific configuration into the overrides key. This allows us to
+configure ESLint to apply these rules only to files matching the given glob pattern (in this case `**/*.ts?(x)`). In the
+overrides configuration you can make use of any configurations that are valid in the regular configuration; but you need
+to keep in mind that the `extends` setting ignores the root property, so if you added a configuration there (e.g.
+`extends: ['prettier']`) you need to specify it again in the `overrides` configuration. So in the end our `.eslintrc.js`
+would look something like this:
+
+```js
+module.exports = {
+  root: true,
+  env: {
+    browser: true,
+    es2021: true,
+    node: true
+  },
+  extends: ['eslint:recommended', 'prettier'],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 12,
+    sourceType: 'module',
+  },
+  rules: {},
+  overrides: [
+    {
+      files: ['**/*.ts?(x)'],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+        ecmaVersion: 12,
+        sourceType: 'module',
+        project: './tsconfig.json',
+      },
+      extends: ['plugin:react/recommended', 'airbnb-typescript', 'prettier'],
+      plugins: ['react', '@typescript-eslint'],
+      rules: {
+        'react/jsx-uses-react': 'off',
+        'react/react-in-jsx-scope': 'off',
+        'react/prop-types': 'off',
+        'react/require-default-props': 'off',
+    },
+  ],
+};
+```
+
+That is the whole configuration. You can be sure that ESlint will apply the TypeScript (and also React) specific rules
+only on files with the `.ts` or `.tsx` extension. For your regular JavaScript files (mostly for configuration, e.g.
+`next.config.js` or `tailwind.config.js`) only the basic recommended ESLint rules are applied! The whole `.eslintrc.js`
+can also be found [here](https://github.com/chrstnkl/next-twin-starter/blob/main/.eslintrc.js).
