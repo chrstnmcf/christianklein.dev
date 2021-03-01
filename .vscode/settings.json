@@ -4,6 +4,20 @@
   "editor.quickSuggestions": {
     "strings": true
   },
+  "tailwindCSS.experimental.classRegex": [
+    "tw`([^`]*)", // tw`...`
+    "tw=\"([^\"]*)", // <div tw="..." />
+    "tw={\"([^\"}]*)", // <div tw={"..."} />
+    "tw\\.\\w+`([^`]*)", // tw.xxx`...`
+    "tw\\(.*?\\)`([^`]*)" // tw(Component)`...`
+  ],
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
+  },
+  "tailwindcss.diagnostics": {
+    "conflict": "loose"
+  },
   "tailwindCSS.lint.cssConflict": "ignore",
   "editor.autoClosingQuotes": "always"
 }
