@@ -16,6 +16,9 @@ export default function Footer() {
         </div>
         <ul tw="list-none grid grid-flow-col gap-3 md:gap-4 text-xs">
           <li>
+            <Link href="/posts">Posts</Link>
+          </li>
+          <li>
             <Link href="/api/rss" target="_blank">
               RSS
             </Link>
