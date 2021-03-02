@@ -1,10 +1,10 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import { promises as fs } from 'fs';
+
 import { Feed } from 'feed';
 
-import config from '../../config';
-import { getAllPosts } from '../../utils/content';
+import config from '../config';
 
-const createFeed = (): string => {
+const buildFeed = async (posts: PostMeta[]) => {
   const { title, description, link, image, author, email } = config;
 
   const feed = new Feed({
@@ -27,7 +27,6 @@ const createFeed = (): string => {
     },
   });
 
-  const posts = getAllPosts();
   if (posts && posts.length > 0) {
     posts.slice(0, 10).forEach((post) => {
       const postUrl = `${link}/posts/${post.slug}`;
@@ -52,13 +51,7 @@ const createFeed = (): string => {
     });
   }
 
-  return feed.rss2();
+  await fs.writeFile('./public/feed.xml', feed.rss2(), 'utf-8');
 };
 
-export default (_req: NextApiRequest, res: NextApiResponse) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/xml; charset=utf-8');
-
-  const feed = createFeed();
-  res.send(feed);
-};
+export default buildFeed;

@@ -19,7 +19,7 @@ export default function Footer() {
             <Link href="/posts">Posts</Link>
           </li>
           <li>
-            <Link href="/api/rss" target="_blank">
+            <Link href="/feed.xml" target="_blank">
               RSS
             </Link>
           </li>
