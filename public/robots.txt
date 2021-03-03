@@ -1,2 +1,4 @@
-User-agent: *
 Sitemap: https://christianklein.dev/sitemap.xml
+
+User-agent: *
+Allow: /
