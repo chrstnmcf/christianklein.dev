@@ -9,12 +9,7 @@
         font-family: Domine;
         font-weight: 700;
       }
-
-      .cls-2 {
-        font-size: 150px;
-      }
     </style>
   </defs>
   <text id="ck" class="cls-1" x="6.844" y="144.122">ck</text>
-  <text id="Lorem_Ipsum" data-name="Lorem Ipsum" class="cls-2" x="346.577" y="143.067">Lorem Ipsum</text>
 </svg>
