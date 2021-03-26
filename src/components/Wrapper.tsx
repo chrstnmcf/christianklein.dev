@@ -1,8 +1,7 @@
 import Head from 'next/head';
 import 'twin.macro';
 import { useRouter } from 'next/router';
-
-import config from '../config';
+import config from '@/config';
 
 import Footer from './Footer';
 import Header from './Header';

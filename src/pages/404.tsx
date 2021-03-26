@@ -1,7 +1,7 @@
 import 'twin.macro';
 
-import Link from '../components/CustomLink';
-import Wrapper from '../components/Wrapper';
+import Link from '@/components/CustomLink';
+import Wrapper from '@/components/Wrapper';
 
 export default function NotFound() {
   return (

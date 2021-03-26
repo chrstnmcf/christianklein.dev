@@ -9,7 +9,7 @@ interface TitleTagProp {
 }
 
 const TitleTag = styled.h1<TitleTagProp>(({ hover }) => [
-  tw`m-0 text-xl text-xl text-gray-500 dark:text-gray-400`,
+  tw`m-0 text-xl text-gray-500 dark:text-gray-400`,
   tw`relative`,
   tw`after:(content block absolute w-0 h-1 bottom-0 left-0 bg-blue-500 opacity-50 transform -skew-x-12)`,
   hover && tw`after:(w-full)`,

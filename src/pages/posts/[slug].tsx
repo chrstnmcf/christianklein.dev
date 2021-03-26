@@ -1,9 +1,8 @@
 import { GetStaticPropsResult } from 'next';
 import hydrate from 'next-mdx-remote/hydrate';
-
-import { getPostBySlug, getSlugs, PostProps } from '../../utils/content';
-import MDXComponents from '../../components/MDXComponents';
-import PostLayout from '../../layouts/PostLayout';
+import { getPostBySlug, getSlugs, PostProps } from '@/utils/content';
+import MDXComponents from '@/components/MDXComponents';
+import PostLayout from '@/layouts/PostLayout';
 
 export default function Post({ source, meta }: PostProps) {
   const content = hydrate(source, { components: MDXComponents });

@@ -1,7 +1,6 @@
 import tw from 'twin.macro';
 import { format } from 'date-fns';
-
-import Link from '../CustomLink';
+import Link from '@/components/CustomLink';
 
 interface Props {
   meta: PostMeta;

@@ -1,7 +1,5 @@
 import Image from 'next/image';
-import 'twin.macro';
-
-import config from '../config';
+import config from '@/config';
 
 export default function Main() {
   const { email } = config;
@@ -9,7 +7,7 @@ export default function Main() {
   return (
     <div tw="grid grid-flow-row md:grid-flow-col gap-6 lg:gap-10 justify-items-center">
       <div tw="my-auto">
-        <Image tw="rounded-full" src="/images/me.jpg" alt="Christian" width={160} height={160} />
+        <Image tw="rounded-full" src="/images/me.jpg" alt="Christian" width={160} height={160} priority />
       </div>
       <div>
         <h2>Hej there, I&apos;m Christian!</h2>

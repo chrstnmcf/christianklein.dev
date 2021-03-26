@@ -5,8 +5,7 @@ import matter from 'gray-matter';
 import renderToString from 'next-mdx-remote/render-to-string';
 import rehypePrism from '@mapbox/rehype-prism';
 import { MdxRemote } from 'next-mdx-remote/types';
-
-import MDXComponents from '../components/MDXComponents';
+import MDXComponents from '@/components/MDXComponents';
 
 const root = process.cwd();
 const dataDirectory = path.join(root, '_content', 'posts');

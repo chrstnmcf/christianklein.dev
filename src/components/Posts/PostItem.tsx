@@ -1,8 +1,7 @@
 import tw, { styled } from 'twin.macro';
 import { format } from 'date-fns';
 import Image from 'next/image';
-
-import Link from '../CustomLink';
+import Link from '@/components/CustomLink';
 
 const PostGrid = styled.div`
   ${tw`py-8 relative grid grid-rows-2 md:grid-rows-none md:grid-flow-col gap-6 items-center justify-items-center`}

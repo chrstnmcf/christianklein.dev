@@ -1,6 +1,4 @@
-import 'twin.macro';
-
-import config from '../config';
+import config from '@/config';
 
 import Link from './CustomLink';
 

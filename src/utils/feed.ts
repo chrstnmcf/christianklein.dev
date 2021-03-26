@@ -1,8 +1,7 @@
 import { promises as fs } from 'fs';
 
 import { Feed } from 'feed';
-
-import config from '../config';
+import config from '@/config';
 
 const buildFeed = async (posts: PostMeta[]) => {
   const { title, description, link, image, author, email } = config;

@@ -1,6 +1,6 @@
-import PostItem from '../../components/Posts/PostItem';
-import Wrapper from '../../components/Wrapper';
-import { getAllPosts } from '../../utils/content';
+import PostItem from '@/components/Posts/PostItem';
+import Wrapper from '@/components/Wrapper';
+import { getAllPosts } from '@/utils/content';
 
 export default function Posts({ posts }: { posts: PostMeta[] }) {
   const postsToDisplay = posts.filter((post: PostMeta) => new Date(post.date).getTime() <= new Date().getTime());

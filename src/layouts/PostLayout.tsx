@@ -1,10 +1,8 @@
 import * as React from 'react';
 import Image from 'next/image';
-import 'twin.macro';
 import { format } from 'date-fns';
 import Markdown from 'react-markdown';
-
-import Wrapper from '../components/Wrapper';
+import Wrapper from '@/components/Wrapper';
 
 interface PostLayoutProps {
   meta: PostMeta;

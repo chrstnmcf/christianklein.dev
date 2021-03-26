@@ -1,6 +1,4 @@
-import 'twin.macro';
-
-import Link from '../CustomLink';
+import Link from '@/components/CustomLink';
 
 import Excerpt from './Summary';
 

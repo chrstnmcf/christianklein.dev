@@ -1,7 +1,5 @@
 import * as React from 'react';
-import 'twin.macro';
-
-import Wrapper from '../components/Wrapper';
+import Wrapper from '@/components/Wrapper';
 
 interface MDXLayoutProps {
   meta: PostMeta;
