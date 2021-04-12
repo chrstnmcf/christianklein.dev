@@ -29,6 +29,23 @@ module.exports = {
           xl: '1024px',
         },
       }),
+      animation: {
+        appear: 'appear 500ms ease-in-out',
+        disappear: 'disappear 500ms ease-in-out',
+        'slide-down': 'slideY 250ms ease-out',
+      },
+      keyframes: {
+        slideY: {
+          '0%': { transform: 'translateY(-120%)' },
+          '100%': { transform: 'translateY(-0%)' },
+        },
+        appear: {
+          to: { opacity: 1 },
+        },
+        disappear: {
+          to: { opacity: 0 },
+        },
+      },
       typography: (theme) => ({
         DEFAULT: {
           css: {
