@@ -30,9 +30,9 @@ module.exports = {
         },
       }),
       animation: {
-        appear: 'appear 500ms ease-in-out',
-        disappear: 'disappear 500ms ease-in-out',
-        'slide-down': 'slideY 250ms ease-out',
+        appear: 'appear 500ms ease-in-out forwards',
+        disappear: 'disappear 500ms ease-in-out forwards',
+        'slide-down': 'slideY 250ms ease-out forwards',
       },
       keyframes: {
         slideY: {

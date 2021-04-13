@@ -8,7 +8,7 @@ export default function Main() {
     <div tw="grid grid-flow-row md:grid-flow-col gap-6 lg:gap-10 justify-items-center">
       <div tw="my-auto">
         <Image
-          tw="rounded-full animate-appear"
+          tw="rounded-full opacity-0 animate-appear"
           src="/images/me.jpg"
           alt="Christian"
           width={160}
