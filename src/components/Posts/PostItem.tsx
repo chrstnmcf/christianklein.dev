@@ -1,14 +1,12 @@
-import tw, { styled } from 'twin.macro';
+import tw from 'twin.macro';
 import { format } from 'date-fns';
 import Image from 'next/image';
 import Link from '@/components/CustomLink';
 
-const PostGrid = styled.div`
-  ${tw`py-8 relative grid grid-rows-2 md:grid-rows-none md:grid-flow-col gap-6 items-center justify-items-center`}
-
-  &::after {
-    ${tw`absolute block content bottom-0 inset-x-0 mx-auto w-9/12 h-px bg-gray-200 dark:bg-gray-700`}
-  }
+const PostGrid = tw.div`
+  py-8 relative
+  grid grid-rows-2 md:grid-rows-none md:grid-flow-col gap-6 items-center justify-items-center
+  after:(absolute block content bottom-0 inset-x-0 mx-auto w-9/12 h-px bg-gray-200 dark:bg-gray-700)
 `;
 
 export default function PostItem({ meta }: { meta: PostMeta }) {

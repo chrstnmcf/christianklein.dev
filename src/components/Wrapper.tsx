@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import 'twin.macro';
 import { useRouter } from 'next/router';
 import config from '@/config';
 
