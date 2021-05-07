@@ -1,6 +1,6 @@
 import * as React from 'react';
 import tw, { styled } from 'twin.macro';
-import { Github, Linkedin, Twitter } from '@styled-icons/boxicons-logos';
+import { Github, Linkedin, Twitter } from '@emotion-icons/boxicons-logos';
 import { useTheme } from 'next-themes';
 import config from '@/config';
 import useStickyHeader from '@/hooks/useStickyHeader';

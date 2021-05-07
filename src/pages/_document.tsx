@@ -1,39 +1,24 @@
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
+import { extractCritical } from '@emotion/server';
+import { EmotionCritical } from '@emotion/server/types/create-instance';
 
 import Favicons from '../components/Favicons';
 
-export default class MyDocument extends Document {
+export default class MyDocument extends Document<EmotionCritical> {
   static async getInitialProps(ctx: DocumentContext) {
-    const sheet = new ServerStyleSheet();
-    const originalRenderPage = ctx.renderPage;
-
-    try {
-      ctx.renderPage = () =>
-        originalRenderPage({
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
-        });
-      const initialProps = await Document.getInitialProps(ctx);
-
-      return {
-        ...initialProps,
-        styles: (
-          <>
-            {initialProps.styles}
-            {sheet.getStyleElement()}
-          </>
-        ),
-      };
-    } finally {
-      sheet.seal();
-    }
+    const initialProps = await Document.getInitialProps(ctx);
+    const page = await ctx.renderPage();
+    const styles = extractCritical(page.html);
+    return { ...initialProps, ...page, ...styles };
   }
 
   render() {
     return (
       <Html>
         <Head>
+          {/* eslint-disable-next-line react/no-danger */}
+          <style data-emotion-css={this.props.ids.join(' ')} dangerouslySetInnerHTML={{ __html: this.props.css }} />
+
           <link rel="preload" href="/fonts/Domine-Bold.woff" as="font" type="font/woff" crossOrigin="anonymous" />
           <link
             rel="preload"

@@ -1,7 +1,7 @@
 import tw, { GlobalStyles } from 'twin.macro';
-import { createGlobalStyle } from 'styled-components';
+import { Global, css } from '@emotion/react';
 
-const BaseStyle = createGlobalStyle`
+const globalStyles = css`
   @font-face {
     font-family: 'Domine';
     src: url('/fonts/Domine-Bold.woff') format('woff');
@@ -101,7 +101,6 @@ const BaseStyle = createGlobalStyle`
     ${tw`after:(content block absolute w-full h-1 bottom-0 left-0 bg-blue-400 opacity-50)`}
   }
 
-
   .token.comment,
   .token.prolog,
   .token.doctype,
@@ -178,8 +177,8 @@ const BaseStyle = createGlobalStyle`
 export default function GlobalStylesComponent() {
   return (
     <>
-      <BaseStyle />
       <GlobalStyles />
+      <Global styles={globalStyles} />
     </>
   );
 }

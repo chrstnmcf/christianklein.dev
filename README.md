@@ -7,5 +7,5 @@ Source code for [christianklein.dev](https://christianklein.dev/) based on Next.
 - [Next.js](https://github.com/vercel/next.js)
 - [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss)
 - [twin.macro](https://github.com/ben-rogerson/twin.macro)
-- [styled-components](https://github.com/styled-components)
+- [emotion](https://github.com/emotion-js/emotion)
 - [TypeScript](https://typescriptlang.org)
