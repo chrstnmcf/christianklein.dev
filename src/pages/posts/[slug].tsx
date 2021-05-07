@@ -1,13 +1,16 @@
 import { GetStaticPropsResult } from 'next';
-import hydrate from 'next-mdx-remote/hydrate';
+import { MDXRemote } from 'next-mdx-remote';
 import { getPostBySlug, getSlugs, PostProps } from '@/utils/content';
 import MDXComponents from '@/components/MDXComponents';
 import PostLayout from '@/layouts/PostLayout';
 
 export default function Post({ source, meta }: PostProps) {
-  const content = hydrate(source, { components: MDXComponents });
-
-  return <PostLayout meta={meta}>{content}</PostLayout>;
+  return (
+    <PostLayout meta={meta}>
+      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+      <MDXRemote {...source} components={MDXComponents} />
+    </PostLayout>
+  );
 }
 
 export async function getStaticPaths() {
