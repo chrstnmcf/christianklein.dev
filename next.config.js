@@ -9,11 +9,10 @@ module.exports = withMDX({
     locales: ['en'],
     defaultLocale: 'en',
   },
-  webpack: (config, { isServer }) => {
-    // Fixes packages that depend on fs/module module
-    if (!isServer) {
-      config.node = { fs: 'empty', module: 'empty' };
-    }
+  future: { webpack5: true },
+  webpack: (config) => {
+    // Unset client-side javascript that only works server-side
+    config.resolve.fallback = { fs: false, module: false };
 
     return config;
   },
