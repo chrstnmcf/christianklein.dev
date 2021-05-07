@@ -2,10 +2,9 @@ import fs from 'fs';
 import path from 'path';
 
 import matter from 'gray-matter';
-import renderToString from 'next-mdx-remote/render-to-string';
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import rehypePrism from '@mapbox/rehype-prism';
-import { MdxRemote } from 'next-mdx-remote/types';
-import MDXComponents from '@/components/MDXComponents';
 
 const root = process.cwd();
 const dataDirectory = path.join(root, '_content', 'posts');
@@ -35,7 +34,7 @@ export const getAllPosts = (): PostMeta[] => {
 };
 
 export interface PostProps {
-  source: MdxRemote.Source;
+  source: MDXRemoteSerializeResult;
   meta: PostMeta;
 }
 
@@ -45,8 +44,7 @@ export const getPostBySlug = async (slug: string): Promise<PostProps> => {
   const { data, content } = matter(source);
   const blogData = data as PostMeta;
 
-  const mdxSource = await renderToString(content, {
-    components: MDXComponents,
+  const mdxSource = await serialize(content, {
     scope: data,
     mdxOptions: {
       rehypePlugins: [rehypePrism],
