@@ -1,0 +1,31 @@
+---
+title: 'Switching from styled-components to emotion'
+date: '2021-05-08'
+summary:
+  'In the last years styled-components was my default choice when it came to styling my components in React. It is one
+  of the most popular CSS in JS libraries but unfortunately contributions are declining. So I switched to emotion as an
+  alternative.'
+---
+
+In the last years [styled-components](https://github.com/styled-components/styled-components) was my default choice when
+it came to styling my components in React. It's one of the most popular CSS in JS libraries, used by many companies
+around the web and in the top ranks of the
+[The State Of CSS survey](https://2020.stateofcss.com/en-US/technologies/css-in-js/). It is therefore even sadder to see
+that the contributions to such a great project a declining. The last months there were fewer and fewer
+[contributions and only one active maintainer](https://github.com/styled-components/styled-components/graphs/contributors)
+with more than 200 open issues. I only became aware of this fact while investigating an issue I had on another project
+where I also use [twin.macro](https://github.com/ben-rogerson/twin.macro) in combination with styled-components and
+Material UI (it's about styles getting added in the wrong order. If you're interested you can read up more
+[here](https://github.com/ben-rogerson/twin.macro/issues/277)).
+
+For another project this made me thinking if I should still stick to **styled-components**. It is still a great and
+satisfying library and I'm familiar with it, know how to use it and it still is working reliably. But what happens if
+more critical issues arise or it stops working in one of the next versions of React? So I decided to give
+[emotion](https://github.com/emotion-js/emotion) a try which is another CSS in JS library inspired by styled-components.
+So the syntax is very similar to the one of styled-components and on top of that it has a smaller package size and has a
+higher performance. So when migrating you almost can keep all of your styled components untouched. This made it _very_
+easy to migrate also the code base of this page from styled-components to emotion. Since I'm using twin.macro I needed
+to change the configuration a little bit (small adjustments in six files). So let's see how it is going with emotion!
+
+This does not mean that I turn my back completely on styled-components. I still have it in use in other projects and
+hope very much that more contributions will come soon!

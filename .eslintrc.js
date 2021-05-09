@@ -27,7 +27,7 @@ module.exports = {
         project: './tsconfig.json',
       },
       extends: ['plugin:react/recommended', 'airbnb-typescript', 'prettier'],
-      plugins: ['react', '@typescript-eslint'],
+      plugins: ['react', '@typescript-eslint', '@emotion'],
       rules: {
         'react/jsx-uses-react': 'off',
         'react/react-in-jsx-scope': 'off',
@@ -42,6 +42,9 @@ module.exports = {
             'newlines-between': 'always',
           },
         ],
+        '@emotion/styled-import': 'error',
+        '@emotion/no-vanilla': 'error',
+        '@emotion/syntax-preference': 'error',
       },
     },
   ],
