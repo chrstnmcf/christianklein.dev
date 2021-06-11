@@ -1,0 +1,146 @@
+---
+title: 'Working with Tailwind CSS'
+date: '2021-06-13'
+summary:
+  'Tailwind CSS has gained much attention in the recent years and I also was really curious about it and wanted to try
+  it out. So i did. In this article I want to share my experiences and my assesment of it with you.'
+image: '/images/posts/working-with-tailwind/kite.jpg'
+imageCredit: 'Photo by [Aaron Burden on Unsplash](https://unsplash.com/photos/O0p6aV9Go3Y)'
+---
+
+In my previous post [Building a web application in 2021](/posts/building-a-web-application-in-2021) I already mentioned
+that I started using Tailwind CSS for this project and I've also used it for another work related project since. In this
+article I want to share my experiences and my assessment of it with you.
+
+<Image src="/images/posts/working-with-tailwind/kite.jpg" alt="Kite" width="1400" height="700" priority />
+
+Tailwind CSS is a utility-first CSS framework and, released in November 2017 (alpha), has raised much attention and
+momentum in the recent year. So it's only natural that I was really curious about it and wanted to try it out. But to be
+honest, at first I was rather sceptical. Being around as a web developer for more than 15 years now, I can confidently
+say that I know how to write CSS. And a framework like Tailwind brings it's very own style and schematics. So why should
+I use `flex` instead of defining `display: flex;` in the class I assign to this element? Now here already comes one
+benefit of Tailwind: you don't have to define a class and, more importantly, you don't have to think about how to name
+this class, just in order to assign `display: flex` to this element. With Tailwind you just write `class="flex"` (or
+`className="flex"` for React). Of course usually you need to apply more CSS attributes then just `display: flex`. I want
+to position the element inside the container below each other, center them vertically, add some padding, a border and a
+border radius. So with pure CSS this would look like this:
+
+```css
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border: 1px solid rgb(229, 231, 235);
+  order-radius: 6px;
+}
+```
+
+Easy, right? But how the heck would I write this with Tailwind? I imagined that I would spend quite some time
+espesically in the beginning to figure out all of the utilities. Fortunatley, Tailwind also comes with it's very own
+IntelliSense plugin for VS Code, so you only have to type `px-` and it provides you with all the available horizontal
+padding utilities. This way you're able to get used to the utilities really fast and quickly can style your elements.
+
+<Image
+  src="/images/posts/working-with-tailwind/tailwind-vscode-intellisense.png"
+  alt="VSCode Tailwind CSS IntelliSense"
+  width={600}
+  height={305}
+/>
+
+Finally, the example above written in Tailwind would look something like this.
+
+```html
+<div class="flex flex-col items-center px-4 py5 border border-gray-200 rounded-md">...</div>
+```
+
+Easy, right? Sure, you have to get used to the syntax but the more familiar you become with it, the faster and more
+convinient it feels.
+
+You also can customise and extend the predefined utilities via `tailwind.config.js`. In there you can specify your theme
+and define your colours and fonts and also override or extend the variants or default theme. This way you can easily
+change an existing breakpoint or define your own screen size variants. You also can extend it with plugins or write your
+own to register new styles, like the official Typography plugin.
+
+## Using Tailwind CSS and CSS-in-JS
+
+So with all of this, Tailwind gives you the tools to quickly build and style your components. This brings me to
+something that made me hesitate to use it: **styled-components**. The CSS-in-JS library is basically my default choice
+when it comes to styling my components in React. It is one of the most popular CSS in JS libraries used by many
+companies around the web and is in the top ranks of the
+[The State Of CSS survey](https://2020.stateofcss.com/en-US/technologies/css-in-js/). Unfortunately, there were fewer
+and fewer contributions in the last months and only one active maintainer but hopefully that doesn't mean the end of
+such a great project. It makes it super easy to write your CSS stylings for your components. So, switching to Tailwind
+CSS means dropping styled-components, right? Luckily no because there is
+[twin.macro](https://github.com/ben-rogerson/twin.macro) to the rescue! It "blends the magic of Tailwind with the
+flexibility of css-in-js at build time". What does this mean? It means that you can use Tailwind to style your
+components but still extend it by writing your custom CSS with styled-components. And the great thing is that
+_twin.macro_ uses Babel to pick up your Tailwind classes and converts them into CSS objects on build time which are
+passed again in your chosen CSS-in-JS library (in my case styled-components). This way it doesn't add any size to your
+build.
+
+```js
+import "twin.macro"
+
+<div tw="flex flex-row md:flex-col" />
+
+// ↓ ↓ ↓ ↓ ↓ ↓
+
+<div
+  css={{
+    display: "flex",
+    flexDirection: "col";
+    "@media (min-width: 768px)": {
+      flexDirection: "row"
+    }
+  }}
+/>
+```
+
+And a combination of _twin.macro_ and _styled-components_ would look like this:
+
+```js
+import "twin.macro"
+
+<div tw="flex flex-row md:flex-col" css={{`background-image: url('hello-world.png')`}} />
+```
+
+With that there wasn't any reason to not use Tailwind! And it helped me a lot. One issue I had when I was using
+**styled-components** only was that I too often made the mistake of writing too _many_ styled components. When I just
+needed to add some padding to a component, I created a new styled component (something like `<PaddedComponent ...>`).
+Now I just can write
+
+```html
+<div tw="p-2">Hello world</div>
+```
+
+and that's it (of course with styled-components I could have used the `css` prop but I rarely used it because it felt
+easier to define a new component - it could have been that I had to define some more styling at some point...).
+
+## Things to keep in mind
+
+So using Tailwind brings many advantages. You're way faster, you don't have to think about class names (or styled
+component names), it makes it easy to define a theme and there are many great plugins available! But of course when you
+apply your Tailwind utility classes you should not make the mistake of applying the same classes for all of your
+re-usable elements. When you think back to "vanilla" CSS, when you define a class to style one or multiple elements you
+define it once but you can re-use this class whenever you need it (for example for some Card components). With Tailwind
+you should apply the same principle and not fall into the trap of applying the same utility classes over and over again.
+No matter if you use just Tailwind without anything else, Tailwind with React or Tailwind with CSS-in-JS. For example
+you can use the `@apply` function provided by Tailwind or if you use React you can easily split it out into your own
+component. Or define your CSS-in-JS object that you can re-use where you need it. With **twin.macro** this could look
+like this:
+
+```js
+import tw from 'twin.macro';
+
+const Grid = tw.div`
+  relative py-8 grid grid grid-rows-2 md:grid-rows-none md:grid-flow-col gap-6 items-center justify-items-center
+`;
+```
+
+And one very important thing at the end: even when using Taildwind all over the place you shouldn't forget about the
+underlying CSS! Especially when you're just started with web development you should still learn all the CSS basics (and
+a little beyond) and not make the mistake of forgetting all about it and just rely on Tailwind. For example when it
+comes to debugging you should know where the styling comes from and what it means. So treat Tailwind as what it is, a
+framework. It is a powerful tool to rapidly build your website or application but you should also know how it works
+without it.
