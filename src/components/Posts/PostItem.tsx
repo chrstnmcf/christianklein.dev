@@ -24,7 +24,7 @@ export default function PostItem({ meta }: { meta: PostMeta }) {
       </div>
       {image && (
         <div tw="w-40 h-full max-h-24 relative">
-          <Image src={image} layout="fill" objectFit="cover" objectPosition="center" tw="rounded-md" />
+          <Image src={image} layout="fill" objectFit="cover" objectPosition="center" tw="rounded-md" alt={title} />
         </div>
       )}
     </PostGrid>

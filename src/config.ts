@@ -1,4 +1,4 @@
-export default {
+const config = {
   title: 'christianklein.dev',
   description: 'Developer and consultant. Tech enthusiast.',
   link: 'https://christianklein.dev',
@@ -12,3 +12,5 @@ export default {
     linkedin: 'https://www.linkedin.com/in/christianklein0/',
   },
 };
+
+export default config;

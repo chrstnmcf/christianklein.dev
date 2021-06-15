@@ -24,7 +24,7 @@ export default function HeaderComponent() {
 
   React.useEffect(() => {
     setMounted(true);
-  });
+  }, [setMounted]);
 
   return (
     <Header sticky={sticky}>
