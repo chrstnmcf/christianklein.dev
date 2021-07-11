@@ -2,6 +2,7 @@ import * as React from 'react';
 import Image from 'next/image';
 import { format } from 'date-fns';
 import Markdown from 'react-markdown';
+
 import Wrapper from '@/components/Wrapper';
 
 interface PostLayoutProps {
