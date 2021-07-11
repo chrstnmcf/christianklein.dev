@@ -1,6 +1,7 @@
 import { promises as fs } from 'fs';
 
 import globby from 'globby';
+
 import config from '@/config';
 
 const prettier = require('prettier');

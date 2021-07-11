@@ -1,5 +1,6 @@
 import { GetStaticPropsResult } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
+
 import { getPostBySlug, getSlugs, PostProps } from '@/utils/content';
 import MDXComponents from '@/components/MDXComponents';
 import PostLayout from '@/layouts/PostLayout';

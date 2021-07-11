@@ -1,6 +1,7 @@
 import tw from 'twin.macro';
 import { format } from 'date-fns';
 import Image from 'next/image';
+
 import Link from '@/components/CustomLink';
 
 const PostGrid = tw.div`

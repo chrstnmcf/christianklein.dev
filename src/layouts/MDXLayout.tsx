@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Wrapper from '@/components/Wrapper';
 
 interface MDXLayoutProps {
