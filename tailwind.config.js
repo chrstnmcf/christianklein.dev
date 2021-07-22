@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
-      serif: ['Domine', ...defaultTheme.fontFamily.serif],
+      serif: [...defaultTheme.fontFamily.serif],
     },
     extend: {
       boxShadow: {

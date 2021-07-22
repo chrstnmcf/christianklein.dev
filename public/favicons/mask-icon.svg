@@ -6,7 +6,7 @@
       }
 
       .cls-1, .cls-2 {
-        font-family: Domine;
+        font-family: ui-serif, Georgia, Cambria, "Times New Roman";
         font-weight: 700;
       }
     </style>

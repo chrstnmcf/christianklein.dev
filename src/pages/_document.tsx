@@ -34,7 +34,6 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="preload" href="/fonts/Domine-Bold.woff" as="font" type="font/woff" crossOrigin="anonymous" />
           <link
             rel="preload"
             href="/fonts/Montserrat-Regular.woff2"
@@ -42,14 +41,8 @@ export default class MyDocument extends Document {
             type="font/woff2"
             crossOrigin="anonymous"
           />
-          <link rel="preload" href="/fonts/Montserrat-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-          <link
-            rel="preload"
-            href="/fonts/Montserrat-SemiBold.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin="anonymous"
-          />
+          <link href="/fonts/Montserrat-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+          <link href="/fonts/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
 
           <Favicons />
           <meta name="robots" content="follow, index" />
