@@ -6,7 +6,8 @@ import Link from '@/components/CustomLink';
 
 const PostGrid = tw.div`
   py-8 relative
-  grid grid-rows-2 md:grid-rows-none md:grid-flow-col gap-6 items-center justify-items-center
+  grid auto-rows-auto md:grid-rows-none md:grid-flow-col gap-6
+  items-center justify-items-center
   after:(absolute block content bottom-0 inset-x-0 mx-auto w-9/12 h-px bg-gray-200 dark:bg-gray-700)
 `;
 
@@ -24,7 +25,7 @@ export default function PostItem({ meta }: { meta: PostMeta }) {
         <p>{summary}</p>
       </div>
       {image && (
-        <div tw="w-40 h-full max-h-24 relative">
+        <div tw="w-40 h-24 relative">
           <Image src={image} layout="fill" objectFit="cover" objectPosition="center" tw="rounded-md" alt={title} />
         </div>
       )}
