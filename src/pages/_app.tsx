@@ -8,7 +8,7 @@ import MDXComponents from '../components/MDXComponents';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider attribute="class">
+    <ThemeProvider defaultTheme="system" attribute="class">
       <MDXProvider components={MDXComponents}>
         <GlobalStylesComponent />
         <Component {...pageProps} />

@@ -20,7 +20,7 @@ const Header = styled.header<HeaderProps>(({ sticky }) => [
 
 export default function HeaderComponent() {
   const [mounted, setMounted] = React.useState(false);
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const sticky = useStickyHeader(32);
 
   React.useEffect(() => {
@@ -71,7 +71,7 @@ export default function HeaderComponent() {
           <li tw="flex">
             {mounted ? (
               <Toggle
-                active={theme === 'dark'}
+                active={resolvedTheme === 'dark'}
                 label="Toggle dark mode"
                 onClick={(active) => setTheme(active ? 'dark' : 'light')}
               />
