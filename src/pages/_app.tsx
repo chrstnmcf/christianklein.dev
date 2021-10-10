@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { MDXProvider } from '@mdx-js/react';
 import { ThemeProvider } from 'next-themes';
-import { AppProps } from 'next/dist/next-server/lib/router/router';
+import type { AppProps } from 'next/app';
 
 import GlobalStylesComponent from '../components/GlobalStyles';
 import MDXComponents from '../components/MDXComponents';
