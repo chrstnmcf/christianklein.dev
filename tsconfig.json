@@ -21,7 +21,8 @@
       "@/layouts/*": ["layouts/*"],
       "@/utils/*": ["utils/*"],
       "@/*": ["*"]
-    }
+    },
+    "incremental": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
