@@ -1,7 +1,7 @@
-import tw, { GlobalStyles } from 'twin.macro';
+import tw, { GlobalStyles as BaseStyles } from 'twin.macro';
 import { createGlobalStyle } from 'styled-components';
 
-const BaseStyle = createGlobalStyle`
+const CustomStyles = createGlobalStyle`
   @font-face {
     font-family: 'Montserrat';
     src: url('/fonts/Montserrat-Regular.woff2') format('woff2');
@@ -169,8 +169,8 @@ const BaseStyle = createGlobalStyle`
 export default function GlobalStylesComponent() {
   return (
     <>
-      <BaseStyle />
-      <GlobalStyles />
+      <CustomStyles />
+      <BaseStyles />
     </>
   );
 }

@@ -22,7 +22,7 @@ const TitleTag = styled.h1<TitleTagProp>(({ hover }) => [
   `,
 ]);
 
-const Title = () => {
+export default function Title() {
   const [hover, setHover] = React.useState(false);
 
   return (
@@ -33,5 +33,3 @@ const Title = () => {
     </Link>
   );
 };
-
-export default Title;

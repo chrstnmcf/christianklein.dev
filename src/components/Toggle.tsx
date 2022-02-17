@@ -47,7 +47,6 @@ export default function Toggle({ active = false, label = 'Toggle', size = 'md', 
   };
 
   return (
-    <>
       <ToggleButton
         css={[activeState ? tw`bg-gray-700` : tw`bg-gray-300`]}
         role="checkbox"
@@ -59,6 +58,5 @@ export default function Toggle({ active = false, label = 'Toggle', size = 'md', 
         <ToggleBackground size={size} />
         <ToggleCircle active={activeState} size={size} aria-hidden="true" />
       </ToggleButton>
-    </>
   );
 }

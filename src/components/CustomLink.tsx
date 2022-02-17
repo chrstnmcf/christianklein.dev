@@ -9,7 +9,7 @@ interface Props {
   className?: string;
 }
 
-const CustomLink = (props: React.PropsWithChildren<Props>) => {
+export default function CustomLink(props: React.PropsWithChildren<Props>) {
   const { href } = props;
   const internal = href && (href.startsWith('/') || href.startsWith('#'));
 
@@ -23,5 +23,3 @@ const CustomLink = (props: React.PropsWithChildren<Props>) => {
 
   return <a target="_blank" rel="noreferrer noopener" {...props} />;
 };
-
-export default CustomLink;
